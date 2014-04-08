@@ -6,7 +6,7 @@ $version = "3.1";
 
 $page = new Page('Ship Display tool - Settings');
 
-$html .= "<p>Version: " & printf($version) & "</p>";
+$html .= "<p>Version: " & print_r($version) & "</p>";
 $html .= "Ship Display Tool Admin page.<br />Created by Spark's.<br />Updated by Darismel Abishai.";
 
 
