@@ -3,22 +3,7 @@
 require_once('common/includes/class.httprequest.php');
 require_once('common/admin/admin_menu.php');
 
-$version = "2.8";
-
-/*$html .= "
-<script src='http://code.jquery.com/jquery.min.js' type='text/javascript'></script>
-<script type='text/javascript'>
-$(document).ready(function(){
-	$.getJSON('http://www.elementstudio.co.uk/downloads/v.json', function(data) {
-	
-	alert('here');
-	
-	})
-.success(function() { alert('second success'); })
-.error(function() { alert('error'); })
-.complete(function() { alert('complete'); });
-});
-</script>";*/
+$version = "3.1";
 
 $page = new Page('Ship Display tool - Settings');
 
