@@ -8,9 +8,9 @@ Project Contributors:
 <li>Salvoxia</li>
 <li>Darismel Abishai</li>
 </ul>
-The Stats may not be 100% correct but maybe corrected so please contact me, my aim is to make sure that these stats are correct.
+The Stats may not be 100% correct but can be corrected as needed, the goal is to make sure that these stats are correct.
 
-Any issues with the Display tool Please send Spark's in Game EvE Mail or go to the eve-dev forum to post: Here. 
+Any issues with the Display tool Please go to the eve-dev forum to post: <a href='http://eve-id.net/forum/viewtopic.php?f=505&t=17295'>Here</a>. 
 
 Please provide as much information as you can regarding the error. A link to the killmail would be great as well.
 
