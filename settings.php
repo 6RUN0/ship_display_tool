@@ -2,7 +2,7 @@
 require_once('common/includes/class.httprequest.php');
 require_once('common/admin/admin_menu.php');
 
-$version = "3.1";
+$version = "4.0";
 
 $page = new Page('Ship Display tool - Settings');
 
