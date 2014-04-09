@@ -10,7 +10,7 @@ Project Contributors:
 </ul>
 The Stats may not be 100% correct but can be corrected as needed, the goal is to make sure that these stats are correct.
 
-Any issues with the Display tool Please go to the eve-dev forum to post: <a href='http://eve-id.net/forum/viewtopic.php?f=505&t=17295'>Here</a>. 
+Any issues with the Display tool Please go to the eve-dev forum to post: <a href='http://www.evekb.org/forum/viewtopic.php?f=505&t=17295'>Here</a>. 
 
 Please provide as much information as you can regarding the error. A link to the killmail would be great as well.
 
