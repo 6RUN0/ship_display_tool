@@ -1,11 +1,12 @@
-EvE Ship Display Tool (v3.1) developed by Spark's (Chris Sheppard)
+EvE Ship Display Tool (v3.1)
 ===
 Project Contributors:
-  Sparks's (Authoring Developer)
-  Hans Glockenspiel
-  Kazhkaz
-  Salvoxia
-  Darismel Abishai
+
+Sparks's (Chris Sheppard, Authoring Developer)
+Hans Glockenspiel
+Kazhkaz
+Salvoxia
+Darismel Abishai
 
 The Stats may not be 100% correct but maybe corrected so please contact me, my aim is to make sure that these stats are correct.
 
