@@ -1,4 +1,4 @@
-EvE Ship Display Tool (v3.1)
+EvE Ship Display Tool (v4.0)
 ===
 Project Contributors:
 <ul>
@@ -16,7 +16,7 @@ Please provide as much information as you can regarding the error. A link to the
 
 Change log:
 ===
-3.1: Updated codebase to work with EDK 4.2+ (Will not work on earlier versions of EDK).
+4.0: Updated codebase to work with EDK 4.2+ (Will not work on earlier versions of EDK).
 
 3.0: Assorted fixes across all ships. Complete overhaul of the stat system. Clean up of the code.
 
