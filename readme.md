@@ -1,17 +1,13 @@
 EvE Ship Display Tool (v3.1)
 ===
 Project Contributors:
-
-Sparks's (Chris Sheppard, Authoring Developer)
-
-Hans Glockenspiel
-
-Kazhkaz
-
-Salvoxia
-
-Darismel Abishai
-
+<ul>
+<li>Sparks's (Chris Sheppard, Authoring Developer)</li>
+<li>Hans Glockenspiel</li>
+<li>Kazhkaz</li>
+<li>Salvoxia</li>
+<li>Darismel Abishai</li>
+</ul>
 The Stats may not be 100% correct but maybe corrected so please contact me, my aim is to make sure that these stats are correct.
 
 Any issues with the Display tool Please send Spark's in Game EvE Mail or go to the eve-dev forum to post: Here. 
