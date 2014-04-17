@@ -30,7 +30,7 @@ if($backgroundimg == "") {
 	$backgroundimg = "#222222";
 }
 $html .= "<br />
-<form name=\"add\" action=\"?a=settings_ship_tool_kb&amp;step=add\" method=\"post\"><br /><br />
+<form name=\"add\" action=\"?a=settings_ship_display_tool&amp;step=add\" method=\"post\"><br /><br />
 	<div style='float:left; width:100%;'>Select your mod background colour in hash, Example: #ffffff: <input type='text' name='sel_back' value='".$backgroundimg."' /></div>
 	<div style='float:left; width:100%;'><input type=\"submit\" value=\"save\" /></div>
 </form>
@@ -51,7 +51,7 @@ if ($_POST) {
   
   config::set('ship_display_back', $tool_back);
   
-  Header("Location: ?a=settings_ship_tool_kb");
+  Header("Location: ?a=settings_ship_display_tool");
 }
 
 
