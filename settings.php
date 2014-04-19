@@ -15,7 +15,7 @@ if($backgroundimg == "") {
 	$backgroundimg = "#222222";
 }
 $html .= "<br />
-<form name=\"add\" action=\"?a=settings_ship_tool_kb&amp;step=add\" method=\"post\">
+<form name=\"add\" action=\"?a=settings_ship_display_tool&amp;step=add\" method=\"post\">
 	<table>
 		<tr>
 			<td>Background Color:</td><td><input type='text' name='sel_back' value='".$backgroundimg."' /></td>
@@ -45,7 +45,7 @@ if ($_POST) {
   
   config::set('ship_display_back', $tool_back);
   
-  Header("Location: ?a=settings_ship_tool_kb");
+  Header("Location: ?a=settings_ship_display_tool");
 }
 
 
