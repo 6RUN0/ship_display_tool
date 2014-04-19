@@ -5860,7 +5860,7 @@ function capInjector($capBooster, $storage, $size, $duration) {
 
 function displayOutput() {
 
-	$currentversion = "3.0";
+	$currentversion = "4.0";
 
 	$title = "<h1>EvE Ship Display Tool (v$currentversion)</h1>";
 	$body = "<p>Replaces the stock fitting window on killmails with one that better resembles the in-game Ship Fitting window.</p><p><h3>Project Contributors:</h3><ul style=\"list-style-type: square\;\"><li>Sparks\'s (Chris Sheppard, Authoring Developer)</li><li>Hans Glockenspiel</li><li>Kazhkaz</li><li>Salvoxia</li><li>Darismel Abishai</li></ul>Please submit any bugs or feature requests to the evekb forum: <a href=\'http://www.evekb.org/forum/viewtopic.php?f=505&t=21721\'>Here</a>.<br>Please provide as much information as you can regarding the error or request.<br><br>A link to a killboard impacted by the bug would be great as well.</p><p><h3>Change log:</h3>4.0: Codebase forked to work with EDK 4.2+<br><b>Note:</b> For installations prior to EDK 4.2 please use SDT 3.0 available <a href=\'http://www.evekb.org/forum/viewtopic.php?f=505&t=17295\'>here</a>.</div>";
