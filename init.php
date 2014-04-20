@@ -5806,15 +5806,14 @@ function toMinutesAndHours($seconds){
     {
         $hoursmin .= $hours."h ";
     }
-    $minutes = bcmod((intval($seconds) / 60),60);
-    if($hours > 0 || $minutes > 0)
+    $minutes = ((intval($seconds) / 60)%60);
+	if($hours > 0 || $minutes > 0)
     {
         $hoursmin .= $minutes."m ";
     }
-    $seconds = bcmod(intval($seconds),60);
+    $seconds = (intval($seconds)%60);
     $hoursmin .= $seconds."s";
-
-    return $hoursmin;
+	return $hoursmin;
 }
 
 function statOntoShip($stat_param, $numChange_param, $type_param, $mode_param, $negEffect) {
