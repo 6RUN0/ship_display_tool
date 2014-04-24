@@ -1,19 +1,19 @@
-<link rel='stylesheet' href='{$simpleurlheader}/mods/ship_display_tool/style/style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="{$simpleurlheader}/mods/ship_display_tool/style/style.css" type="text/css" media="all" />
 
 
-<div class='controllerFitter'>
-<div id='fitcontainer'>
+<div class="controllerFitter">
+<div id="fitcontainer">
 
-  <ul id='infoBar'>
+  <ul id="infoBar">
 
     <li class="infosect">
-      <ul id='victimBodycontainer'>
-        <li class='liheader kb-table-header'><a href='{$getPilotNameURL}'>{$getPilotName}</a> lost a <a href='{$getPilotShipURL}'>{$getPilotShip}</a> ({$getPilotShipClass}) in <a href='{$getPilotLocURL}'>{$getPilotLoc}</a> - {$getPilotLocReg} ({$getPilotLocSec})</li>
+      <ul id="victimBodycontainer">
+        <li class="liheader kb-table-header"><a href="{$getPilotNameURL}">{$getPilotName}</a> lost a <a href="{$getPilotShipURL}">{$getPilotShip}</a> ({$getPilotShipClass}) in <a href="{$getPilotLocURL}">{$getPilotLoc}</a> - {$getPilotLocReg} ({$getPilotLocSec})</li>
         <li id="shipcontainer" class="kb-table-row-even">
           <div class="shipview">
-            <!--div id='{$backdrop}' style='left:{$left}px;top:{$top}px;'></div-->
-            <!--img src='{$simpleurlheader}img/ships/256_256/{$getShipIcon}.png' alt='' id='shipImg'/-->
-            <img src='http://image.eveonline.com/Render/{$getShipIcon}_512.png' alt='' id='shipImg'/>
+            <!--div id="{$backdrop}" style='left:{$left}px;top:{$top}px;'></div-->
+            <!--img src="{$simpleurlheader}img/ships/256_256/{$getShipIcon}.png" alt="" id="shipImg"/-->
+            <img src="http://image.eveonline.com/Render/{$getShipIcon}_512.png" alt="" id="shipImg"/>
 
 
             <canvas id="shipCover" width="430" height="426"></canvas>
@@ -77,7 +77,7 @@
               }
 
             </script>
-            <div id='fitting_view'></div>
+            <div id="fitting_view"></div>
 
 
             <ul>
@@ -88,27 +88,27 @@
               <li>mis</li>
             {if $modSlotsh}
               {foreach $modSlotsh as $value}
-                <li id="high-slot-{$value@key}"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
+                <li id="high-slot-{$value@key}" class="slot"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
               {/foreach}
             {/if}
             {if $modSlotsm}
               {foreach $modSlotsm as $value}
-                <li id="med-slot-{$value@key}"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
+                <li id="medium-slot-{$value@key}" class="slot"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
               {/foreach}
             {/if}
             {if $modSlotsl}
               {foreach $modSlotsl as $value}
-                <li id="low-slot-{$value@key}"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
+                <li id="low-slot-{$value@key}" class="slot"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
               {/foreach}
             {/if}
             {if $modSlotsr}
               {foreach $modSlotsr as $value}
-                <li id="rig-slot-{$value@key}"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
+                <li id="rig-slot-{$value@key}" class="slot"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
               {/foreach}
             {/if}
             {if $modSlotss}
               {foreach $modSlotss as $value}
-                <li id="sub-sys-slot-{$value@key}"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
+                <li id="sub-sys-slot-{$value@key}" class="slot"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
               {/foreach}
             {/if}
             </ul>
@@ -169,22 +169,22 @@
 
         </li>
         <li class="infosect">
-          <ul id='victimBodycontainer'>
-            <li class='libody kb-table-row-even'>
+          <ul id="victimBodycontainer">
+            <li class="libody kb-table-row-even">
               <ul id="victimcol">
-                <li class="port"><a href='{$getPilotNameURL}'><img src='{$getPilotPort}' alt='' /></a></li>
-                <li class="portmini"><a href='{$getPilotCorpURL}'><img src='{$getCorpPort}' alt='{$getPilotCorp}' title='{$getPilotCorp}' /></a></li>
-                <li class="portmini"><a href='{$getPilotAllianceURL}'><img src='{$getAlliPort}' alt='{$getPilotAlliance}' title='{$getPilotAlliance}' /></a></li>
+                <li class="port"><a href="{$getPilotNameURL}"><img src="{$getPilotPort}" alt="" /></a></li>
+                <li class="portmini"><a href="{$getPilotCorpURL}"><img src="{$getCorpPort}" alt="{$getPilotCorp}" title="{$getPilotCorp}" /></a></li>
+                <li class="portmini"><a href="{$getPilotAllianceURL}"><img src="{$getAlliPort}" alt="{$getPilotAlliance}" title="{$getPilotAlliance}" /></a></li>
               </ul>
               <ul id="victimcol1">
-                <li>Name: <span class="r_wid"><a href='{$getPilotNameURL}'>{$getPilotName}</a></span></li>
-                <li>Corp: <span class="r_wid"><a href='{$getPilotCorpURL}'>{$getPilotCorp}</a></span></li>
-                <li>Alliance: <span class="r_wid"><a href='{$getPilotAllianceURL}'>{$getPilotAlliance}</a></span></li>
+                <li>Name: <span class="r_wid"><a href="{$getPilotNameURL}">{$getPilotName}</a></span></li>
+                <li>Corp: <span class="r_wid"><a href="{$getPilotCorpURL}">{$getPilotCorp}</a></span></li>
+                <li>Alliance: <span class="r_wid"><a href="{$getPilotAllianceURL}">{$getPilotAlliance}</a></span></li>
                 <li>Date: <span class="r_wid">{$getPilotDate}</span></li>
               </ul>
               <ul id="victimcol2">
-                <li>Ship: <span class="r_wid"><a href='{$getPilotShipURL}'>{$getPilotShip}</a><br />({$getPilotShipClass})</span></li>
-                <li>Location: <span class="r_wid"><a href='{$getPilotLocURL}'>{$getPilotLoc}</a><br /> {$getPilotLocReg} ({$getPilotLocSec})</span></li>
+                <li>Ship: <span class="r_wid"><a href="{$getPilotShipURL}">{$getPilotShip}</a><br />({$getPilotShipClass})</span></li>
+                <li>Location: <span class="r_wid"><a href="{$getPilotLocURL}">{$getPilotLoc}</a><br /> {$getPilotLocReg} ({$getPilotLocSec})</span></li>
               </ul>
             </li>
           </ul>
@@ -195,7 +195,7 @@
 
 
 
-  <div id='statbar'>
+  <div id="statbar">
 
     <ul class="containers">
       {if $getCapStable}
@@ -327,24 +327,24 @@
 
     <ul class="containers">
       <li class="infosect">
-        <ul id='topDamBodycontianer'>
-          <li class='liheader kb-table-header'>Top Damage</li>
+        <ul id="topDamBodycontianer">
+          <li class="liheader kb-table-header">Top Damage</li>
 
-          <li class='libody kb-table-row-even'>
-            <a href='{$topgetPilotURL}'><img src='{$topgetPilotIcon}' alt='{$topgetPilotName}' title='{$topgetPilotName}' /></a>
-            <a href='{$topgetCorpURL}'><img src='{$topgetCorpIcon}' alt='{$topgetCorpName}' title='{$topgetCorpName}' style="width:32px; height:32px; border:0px" /></a>
-            <a href='{$topgetShipURL}'><img src='{$topgetShipIcon}' alt='{$topgetShipName}' title='{$topgetShipName}' style="width:32px; height:32px; border:0px" /></a>
+          <li class="libody kb-table-row-even">
+            <a href="{$topgetPilotURL}"><img src="{$topgetPilotIcon}" alt="{$topgetPilotName}" title="{$topgetPilotName}" /></a>
+            <a href="{$topgetCorpURL}"><img src="{$topgetCorpIcon}" alt="{$topgetCorpName}" title="{$topgetCorpName}" width="32px" height="32px" /></a>
+            <a href="{$topgetShipURL}"><img src="{$topgetShipIcon}" alt="{$topgetShipName}" title="{$topgetShipName}" width="32px" height="32px" /></a>
             {if $topgetShipID != 0}
-              <a href='{$topgetAllianceURL}'>
-                <img src='{$topgetAllianceIcon}' alt='{$topgetAllianceName}' title='{$topgetAllianceName}' style="width:32px; height:32px; border:0px" />
+              <a href="{$topgetAllianceURL}">
+                <img src="{$topgetAllianceIcon}" alt="{$topgetAllianceName}" title="{$topgetAllianceName}" width="32px" height="32px" />
               </a>
             {else}
-              <img src='{$topgetAllianceIcon}' alt='{$topgetAllianceName}' title='{$topgetAllianceName}' style="width:32px; height:32px; border:0px" />
+              <img src="{$topgetAllianceIcon}" alt="{$topgetAllianceName}" title="{$topgetAllianceName}" width="32px" height="32px" />
             {/if}
 
 
             {if $topgetWeaponID != 0}
-              <a href='{$topgetWeaponURL}'>{$topgetWeaponIcon}</a>
+              <a href="{$topgetWeaponURL}">{$topgetWeaponIcon}</a>
             {else}
               {$topgetWeaponIcon}
             {/if}
@@ -352,24 +352,24 @@
         </ul>
       </li>
       <li class="infosect">
-        <ul id='finalBodycontianer'>
-          <li class='liheader kb-table-header'>Final Blow</li>
+        <ul id="finalBodycontianer">
+          <li class="liheader kb-table-header">Final Blow</li>
 
-          <li class='libody kb-table-row-even'>
-            <a href='{$fingetPilotURL}'><img src='{$fingetPilotIcon}' alt='{$fingetPilotName}' title='{$fingetPilotName}' /></a>
-            <a href='{$fingetCorpURL}'><img src='{$fingetCorpIcon}' alt='{$fingetCorpName}' title='{$fingetCorpName}' style="width:32px; height:32px; border:0px" /></a>
-            <a href='{$fingetShipURL}'><img src='{$fingetShipIcon}' alt='{$fingetShipName}' title='{$fingetShipName}' style="width:32px; height:32px; border:0px" /></a>
+          <li class="libody kb-table-row-even">
+            <a href="{$fingetPilotURL}"><img src="{$fingetPilotIcon}" alt="{$fingetPilotName}" title="{$fingetPilotName}" /></a>
+            <a href="{$fingetCorpURL}"><img src="{$fingetCorpIcon}" alt="{$fingetCorpName}" title="{$fingetCorpName}" width="32px" height="32px" /></a>
+            <a href="{$fingetShipURL}"><img src="{$fingetShipIcon}" alt="{$fingetShipName}" title="{$fingetShipName}" width="32px" height="32px" /></a>
             {if $fingetShipID != 0}
-              <a href='{$fingetAllianceURL}'>
-                <img src='{$fingetAllianceIcon}' alt='{$fingetAllianceName}' title='{$fingetAllianceName}' style="width:32px; height:32px; border:0px" />
+              <a href="{$fingetAllianceURL}">
+                <img src="{$fingetAllianceIcon}" alt="{$fingetAllianceName}" title="{$fingetAllianceName}" width="32px" height="32px" />
               </a>
             {else}
-              <img src='{$fingetAllianceIcon}' alt='{$fingetAllianceName}' title='{$fingetAllianceName}' style="width:32px; height:32px; border:0px" />
+              <img src="{$fingetAllianceIcon}" alt="{$fingetAllianceName}" title="{$fingetAllianceName}" width="32px" height="32px" />
             {/if}
 
 
             {if $fingetWeaponID != 0}
-              <a href='{$fingetWeaponURL}'>{$fingetWeaponIcon}</a>
+              <a href="{$fingetWeaponURL}">{$fingetWeaponIcon}</a>
             {else}
               {$fingetWeaponIcon}
             {/if}
@@ -379,8 +379,8 @@
     </ul>
   </div>
 
-  <div id='infoIcon'>
-    <a href='#' onclick='{$displayOutput}'><img src='{$simpleurlheader}/mods/ship_display_tool/images/flashImage/icon.png' alt='Info' title='Info' /></a>
+  <div id="infoIcon">
+    <a href="#" onclick="{$displayOutput}"><img src="{$simpleurlheader}/mods/ship_display_tool/images/flashImage/icon.png" alt="Info" title="Info" /></a>
   </div>
 </div>
 </div>

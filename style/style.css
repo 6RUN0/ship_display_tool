@@ -318,210 +318,182 @@ ul {
   left: 0;
 }
 
-#high-slot-0 {
+.slot {
   position: absolute;
+}
+
+#high-slot-0 {
   top: 45px;
-  left: 88px;
+  left: 90px;
 }
 
 #high-slot-1 {
-  position: absolute;
-  top: 25px;
-  left: 118px;
+  top: 28px;
+  left: 117px;
 }
 
 #high-slot-2 {
-  position: absolute;
-  top: 15px;
-  left: 148px;
+  top: 18px;
+  left: 147px;
 }
 
 #high-slot-3 {
-  position: absolute;
-  top: 10px;
-  left: 179px;
+  top: 12px;
+  left: 178px;
 }
 
 #high-slot-4 {
-  position: absolute;
-  top: 10px;
+  top: 12px;
   left: 210px;
 }
 
 #high-slot-5 {
-  position: absolute;
   top: 17px;
   left: 243px;
 }
 
 #high-slot-6 {
-  position: absolute;
   top: 25px;
   left: 273px;
 }
 
 #high-slot-7 {
-  position: absolute;
   top: 40px;
   left: 298px;
 }
 
 #medium-slot-0 {
-  position: absolute;
   top: 85px;
   left: 338px;
 }
 
 #medium-slot-1 {
-  position: absolute;
   top: 115px;
   left: 358px;
 }
 
 #medium-slot-2 {
-  position: absolute;
   top: 145px;
   left: 368px;
 }
 
 #medium-slot-3 {
-  position: absolute;
   top: 175px;
   left: 373px;
 }
 
 #medium-slot-4 {
-  position: absolute;
   top: 205px;
   left: 373px;
 }
 
 #medium-slot-5 {
-  position: absolute;
   top: 237px;
   left: 368px;
 }
 
 #medium-slot-6 {
-  position: absolute;
   top: 267px;
   left: 358px;
 }
 
 #medium-slot-7 {
-  position: absolute;
   top: 295px;
   left: 342px;
 }
 
 
 #low-slot-0 {
-  position: absolute;
   top: 338px;
   left: 298px;
   z-index: 4;
 }
 
 #low-slot-1 {
-  position: absolute;
   top: 353px;
   left: 271px;
   z-index: 4;
 }
 
 #low-slot-2 {
-  position: absolute;
   top: 365px;
   left: 243px;
   z-index: 4;
 }
 
 #low-slot-3 {
-  position: absolute;
   top: 370px;
   left: 213px;
   z-index: 4;
 }
 
 #low-slot-4 {
-  position: absolute;
   top: 370px;
   left: 178px;
   z-index: 4;
 }
 
 #low-slot-5 {
-  position: absolute;
   top: 365px;
   left: 148px;
   z-index: 3;
 }
 
 #low-slot-6 {
-  position: absolute;
   top: 356px;
   left: 120px;
   z-index: 2;
 }
 
 #low-slot-7 {
-  position: absolute;
   top: 340px;
   left: 92px;
   z-index: 1;
 }
 
 #rig-slot-0 {
-  position: absolute;
   top: 137px;
   left: 22px;
   z-index: 3;
 }
 
 #rig-slot-1 {
-  position: absolute;
   top: 107px;
   left: 35px;
   z-index: 2;
 }
 
 #rig-slot-2 {
-  position: absolute;
   top: 80px;
   left: 52px;
   z-index: 1;
 }
 
 #sub-sys-slot-0 {
-  position: absolute;
   top: 305px;
   left: 55px;
   z-index: 4;
 }
 
 #sub-sys-slot-1 {
-  position: absolute;
   top: 277px;
   left: 35px;
   z-index: 3;
 }
 
 #sub-sys-slot-2 {
-  position: absolute;
   top: 245px;
   left: 25px;
   z-index: 2;
 }
 
 #sub-sys-slot-3 {
-  position: absolute;
   top: 215px;
   left: 15px;
   z-index: 1;
 }
 
 #sub-sys-slot-4 {
-  position: absolute;
   top: 180px;
   left: 15px;
   z-index: 1;
