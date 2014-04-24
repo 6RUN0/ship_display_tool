@@ -21,28 +21,12 @@
             <canvas id="shipprg" width="152" height="72"></canvas>
             <canvas id="shipcal" width="65" height="102"></canvas>
             <script>
-              //window.onload = function(){
-                var canvas = document.getElementById("shipCover");
-                var context = canvas.getContext("2d");
-                var centerX = canvas.width / 2;
-                var centerY = canvas.height / 2;
-                var radius = 275;
-
-                context.beginPath();
-                context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-                context.fillStyle = "rgba(0,0,0,0)";
-                context.fill();
-                //context.globalAlpha = 0;
-                context.lineWidth = 150;
-                context.strokeStyle = '{$ship_display_back}';
-                context.stroke();
-
 
                 var canvas2 = document.getElementById("shipcpu");
                 var context2 = canvas2.getContext("2d");
                 context2.moveTo({$percpuxs}, {$percpuys});
                 context2.quadraticCurveTo({$percpux1}, {$percpuy1}, {$percpuxe}, {$percpuye});
-                context2.lineWidth = 9;
+                context2.lineWidth = 8;
                 context2.strokeStyle = "#356160"; // line color
                 context2.stroke();
 
@@ -51,7 +35,7 @@
                 var context3 = canvas3.getContext("2d");
                 context3.moveTo({$perprgxs}, {$perprgys});
                 context3.quadraticCurveTo({$perprgx1}, {$perprgy1}, {$perprgxe}, {$perprgye});
-                context3.lineWidth = 9;
+                context3.lineWidth = 8;
                 context3.strokeStyle = "#67160a"; // line color
                 context3.stroke();
 
@@ -60,21 +44,10 @@
                 var context4 = canvas4.getContext("2d");
                 context4.moveTo({$percalxs}, {$percalys});
                 context4.quadraticCurveTo({$percalx1}, {$percaly1}, {$percalxe}, {$percalye});
-                context4.lineWidth = 9;
+                context4.lineWidth = 8;
                 context4.strokeStyle = "#4a5356";
                 context4.stroke();
 
-
-              //};
-              function getStyle(className) {
-                var classes = document.styleSheets[0].rules || document.styleSheets[0].cssRules
-                for(var x=0;x<classes.length;x++) {
-                  if(classes[x].selectorText==className) {
-                      return classes[x].style.backgroundColor;
-                      break;
-                  }
-                }
-              }
 
             </script>
             <div id="fitting_view"></div>
