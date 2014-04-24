@@ -88,27 +88,27 @@
 							<li>mis</li>
 						{if $modSlotsh}
 							{foreach $modSlotsh as $value}
-								<li id='h{$value@key}'><img src='{$value.iconloc}' alt="{$value.name}" title="{$value.name}" style='width:40px;height:40px;' /></li>
+								<li id="high-slot-{$value@key}"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
 							{/foreach}
 						{/if}
 						{if $modSlotsm}
 							{foreach $modSlotsm as $value}
-								<li id='m{$value@key}'><img src='{$value.iconloc}' alt="{$value.name}" title="{$value.name}" style='width:40px;height:40px;' /></li>
+								<li id="med-slot-{$value@key}"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
 							{/foreach}
 						{/if}
 						{if $modSlotsl}
 							{foreach $modSlotsl as $value}
-								<li id='l{$value@key}'><img src='{$value.iconloc}' alt="{$value.name}" title="{$value.name}" style='width:40px;height:40px;' /></li>
+								<li id="low-slot-{$value@key}"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
 							{/foreach}
 						{/if}
 						{if $modSlotsr}
 							{foreach $modSlotsr as $value}
-								<li id='r{$value@key}'><img src='{$value.iconloc}' alt="{$value.name}" title="{$value.name}" style='width:40px;height:40px;' /></li>
+								<li id="rig-slot-{$value@key}"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
 							{/foreach}
 						{/if}
 						{if $modSlotss}
 							{foreach $modSlotss as $value}
-								<li id='s{$value@key}'><img src='{$value.iconloc}' alt="{$value.name}" title="{$value.name}" style='width:40px;height:40px;' /></li>
+								<li id="sub-sys-slot-{$value@key}"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
 							{/foreach}
 						{/if}
 						</ul>

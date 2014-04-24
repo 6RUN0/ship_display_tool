@@ -279,7 +279,6 @@ ul {
   width: 145px;
 }
 
-
 .shipview {
   float: left;
   position: relative;
@@ -319,225 +318,214 @@ ul {
   left: 0;
 }
 
-.shipview #h0 {
+#high-slot-0 {
   position: absolute;
   top: 45px;
   left: 88px;
 }
 
-.shipview #h1 {
+#high-slot-1 {
   position: absolute;
   top: 25px;
   left: 118px;
 }
 
-.shipview #h2 {
+#high-slot-2 {
   position: absolute;
   top: 15px;
   left: 148px;
 }
 
-.shipview #h3 {
+#high-slot-3 {
   position: absolute;
   top: 10px;
   left: 179px;
 }
 
-.shipview #h4 {
+#high-slot-4 {
   position: absolute;
   top: 10px;
   left: 210px;
 }
 
-.shipview #h5 {
+#high-slot-5 {
   position: absolute;
   top: 17px;
   left: 243px;
 }
 
-.shipview #h6 {
+#high-slot-6 {
   position: absolute;
   top: 25px;
   left: 273px;
 }
 
-.shipview #h7 {
+#high-slot-7 {
   position: absolute;
   top: 40px;
   left: 298px;
 }
 
-
-
-
-.shipview #m0 {
+#medium-slot-0 {
   position: absolute;
   top: 85px;
   left: 338px;
 }
 
-.shipview #m1 {
+#medium-slot-1 {
   position: absolute;
   top: 115px;
   left: 358px;
 }
 
-.shipview #m2 {
+#medium-slot-2 {
   position: absolute;
   top: 145px;
   left: 368px;
 }
 
-.shipview #m3 {
+#medium-slot-3 {
   position: absolute;
   top: 175px;
   left: 373px;
 }
 
-.shipview #m4 {
+#medium-slot-4 {
   position: absolute;
   top: 205px;
   left: 373px;
 }
 
-.shipview #m5 {
+#medium-slot-5 {
   position: absolute;
   top: 237px;
   left: 368px;
 }
 
-.shipview #m6 {
+#medium-slot-6 {
   position: absolute;
   top: 267px;
   left: 358px;
 }
 
-.shipview #m7 {
+#medium-slot-7 {
   position: absolute;
   top: 295px;
   left: 342px;
 }
 
 
-.shipview #l0 {
+#low-slot-0 {
   position: absolute;
   top: 338px;
   left: 298px;
   z-index: 4;
 }
 
-.shipview #l1 {
+#low-slot-1 {
   position: absolute;
   top: 353px;
   left: 271px;
   z-index: 4;
 }
 
-.shipview #l2 {
+#low-slot-2 {
   position: absolute;
   top: 365px;
   left: 243px;
   z-index: 4;
 }
 
-.shipview #l3 {
+#low-slot-3 {
   position: absolute;
   top: 370px;
   left: 213px;
   z-index: 4;
 }
 
-.shipview #l4 {
+#low-slot-4 {
   position: absolute;
   top: 370px;
   left: 178px;
   z-index: 4;
 }
 
-.shipview #l5 {
+#low-slot-5 {
   position: absolute;
   top: 365px;
   left: 148px;
   z-index: 3;
 }
 
-.shipview #l6 {
+#low-slot-6 {
   position: absolute;
   top: 356px;
   left: 120px;
   z-index: 2;
 }
 
-.shipview #l7 {
+#low-slot-7 {
   position: absolute;
   top: 340px;
   left: 92px;
   z-index: 1;
 }
 
-
-
-.shipview #r0 {
+#rig-slot-0 {
   position: absolute;
   top: 137px;
   left: 22px;
   z-index: 3;
 }
 
-.shipview #r1 {
+#rig-slot-1 {
   position: absolute;
   top: 107px;
   left: 35px;
   z-index: 2;
 }
 
-.shipview #r2 {
+#rig-slot-2 {
   position: absolute;
   top: 80px;
   left: 52px;
   z-index: 1;
 }
 
-
-
-
-
-.shipview #s0 {
+#sub-sys-slot-0 {
   position: absolute;
   top: 305px;
   left: 55px;
   z-index: 4;
 }
 
-.shipview #s1 {
+#sub-sys-slot-1 {
   position: absolute;
   top: 277px;
   left: 35px;
   z-index: 3;
 }
 
-.shipview #s2 {
+#sub-sys-slot-2 {
   position: absolute;
   top: 245px;
   left: 25px;
   z-index: 2;
 }
 
-.shipview #s3 {
+#sub-sys-slot-3 {
   position: absolute;
   top: 215px;
   left: 15px;
   z-index: 1;
 }
 
-.shipview #s4 {
+#sub-sys-slot-4 {
   position: absolute;
   top: 180px;
   left: 15px;
   z-index: 1;
 }
-
-
 
 .shipview #fitting_grid {
   position: absolute;
