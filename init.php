@@ -5887,12 +5887,12 @@ function toMinutesAndHours($seconds)
     {
         $hoursmin .= $hours."h ";
     }
-    $minutes = bcmod((intval($seconds) / 60),60);
+    $minutes = (intval($seconds) / 60) % 60;
     if($hours > 0 || $minutes > 0)
     {
         $hoursmin .= $minutes."m ";
     }
-    $seconds = bcmod(intval($seconds),60);
+    $seconds = intval($seconds) % 60;
     $hoursmin .= $seconds."s";
 
     return $hoursmin;

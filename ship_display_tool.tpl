@@ -81,10 +81,10 @@
 
 
 						<ul>
-							<li id='d_turret'></li>
-							<li id='d_missile'></li>
-							<li id='d_turcount_{$getTurUsed}'></li>
-							<li id='d_miscount_{$getMisUsed}'></li>
+							<li id="d-turret"></li>
+							<li id="d-missile"></li>
+							<li id="d-turcount-{$getTurUsed}" class="tur-item"></li>
+							<li id="d-miscount-{$getMisUsed}" class="mis-item"></li>
 							<li>mis</li>
 						{if $modSlotsh}
 							{foreach $modSlotsh as $value}

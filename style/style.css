@@ -4,28 +4,6 @@
   Modified 03/06/2010
 */
 
-/*Reset*/
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td
-{
-  /*margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-weight: inherit;
-  font-style: inherit;
-  font-size: 100%;
-  font-family: inherit;
-  vertical-align: baseline;
-  color: #fff;
-  font-family: 'Segoe UI', 'Lucida Granda', 'Trebuchet', 'Trebuchet MS', 'Verdana', sans-serif;
-  font-size: 11px;*/
-}
-
-img {
-  border: none;
-  border-collapse: collapse;
-}
-
 #fitcontainer {
   position: relative;
   width: 770px;
@@ -34,42 +12,33 @@ img {
 }
 
 #backImg {
-
   position: absolute;
   top: 0;
   right: 0;
   width: 770px;
   height: 520px;
   background-image: url('../images/panelBackground.png');
-
 }
 
 #amarrbackImg {
-
   width: 770px;
   height: 520px;
   background-image: url('../images/amarr/panelBackground.png');
-
 }
 
 #caldaribackImg {
-
   width: 770px;
   height: 520px;
   background-image: url('../images/caldari/panelBackground.png');
-
 }
 
 #gallentebackImg {
-
   width: 770px;
   height: 520px;
   background-image: url('../images/gallente/panelBackground.png');
-
 }
 
 #minmatarbackImg {
-
   width: 770px;
   height: 520px;
   /*background-image: url('../images/minmatar/panelBackground.png');*/
@@ -81,226 +50,111 @@ ul {
 }
 
 
-li#d_turret {
+#d-turret {
   background: url('../images/flashImage/gun.png') no-repeat transparent;
-
   position: absolute;
   top: 5px;
   left: 60px;
   width: 32px;
   height: 32px;
-
 }
 
-li#d_missile {
+#d-missile {
   background: url('../images/flashImage/missile.png') no-repeat transparent;
-
   position: absolute;
   top: 5px;
   left: 340px;
   width: 32px;
   height: 32px;
-
 }
 
-li#d_turcount_0 {
+.tur-item {
+  position: absolute;
+  top: 10px;
+  left: 75px;
+  width: 66px;
+  height: 42px;
+}
+
+#d-turcount-0 {
   background: url('../images/flashImage/tur_0.png') no-repeat transparent;
-
-  position: absolute;
-  top: 10px;
-  left: 75px;
-  width: 66px;
-  height: 42px;
-
 }
 
-li#d_turcount_1 {
+#d-turcount-1 {
   background: url('../images/flashImage/tur_1.png') no-repeat transparent;
-
-  position: absolute;
-  top: 10px;
-  left: 75px;
-  width: 66px;
-  height: 42px;
-
 }
 
-li#d_turcount_2 {
+#d-turcount-2 {
   background: url('../images/flashImage/tur_2.png') no-repeat transparent;
-
-  position: absolute;
-  top: 10px;
-  left: 75px;
-  width: 66px;
-  height: 42px;
-
 }
 
-li#d_turcount_3 {
+#d-turcount-3 {
   background: url('../images/flashImage/tur_3.png') no-repeat transparent;
-
-  position: absolute;
-  top: 10px;
-  left: 75px;
-  width: 66px;
-  height: 42px;
-
 }
 
-li#d_turcount_4 {
+#d-turcount-4 {
   background: url('../images/flashImage/tur_4.png') no-repeat transparent;
-
-  position: absolute;
-  top: 10px;
-  left: 75px;
-  width: 66px;
-  height: 42px;
-
 }
 
-li#d_turcount_5 {
+#d-turcount-5 {
   background: url('../images/flashImage/tur_5.png') no-repeat transparent;
-
-  position: absolute;
-  top: 10px;
-  left: 75px;
-  width: 66px;
-  height: 42px;
-
 }
 
-li#d_turcount_6 {
+#d-turcount-6 {
   background: url('../images/flashImage/tur_6.png') no-repeat transparent;
-
-  position: absolute;
-  top: 10px;
-  left: 75px;
-  width: 66px;
-  height: 42px;
-
 }
 
-li#d_turcount_7 {
+#d-turcount-7 {
   background: url('../images/flashImage/tur_7.png') no-repeat transparent;
-
-  position: absolute;
-  top: 10px;
-  left: 75px;
-  width: 66px;
-  height: 42px;
-
 }
 
-li#d_turcount_8 {
+#d-turcount-8 {
   background: url('../images/flashImage/tur_8.png') no-repeat transparent;
-
-  position: absolute;
-  top: 10px;
-  left: 75px;
-  width: 66px;
-  height: 42px;
-
 }
 
-li#d_miscount_0 {
+.mis-item {
+  position: absolute;
+  top: 10px;
+  left: 290px;
+  width: 66px;
+  height: 42px;
+}
+
+#d-miscount-0 {
   background: url('../images/flashImage/mis_0.png') no-repeat transparent;
-
-  position: absolute;
-  top: 10px;
-  left: 290px;
-  width: 66px;
-  height: 42px;
-
 }
 
-li#d_miscount_1 {
+#d-miscount-1 {
   background: url('../images/flashImage/mis_1.png') no-repeat transparent;
-
-  position: absolute;
-  top: 10px;
-  left: 290px;
-  width: 66px;
-  height: 42px;
-
 }
-li#d_miscount_2 {
+
+#d-miscount-2 {
   background: url('../images/flashImage/mis_2.png') no-repeat transparent;
-
-  position: absolute;
-  top: 10px;
-  left: 290px;
-  width: 66px;
-  height: 42px;
-
 }
-li#d_miscount_3 {
+
+#d-miscount-3 {
   background: url('../images/flashImage/mis_3.png') no-repeat transparent;
-
-  position: absolute;
-  top: 10px;
-  left: 290px;
-  width: 66px;
-  height: 42px;
-
 }
-li#d_miscount_4 {
+
+#d-miscount-4 {
   background: url('../images/flashImage/mis_4.png') no-repeat transparent;
-
-  position: absolute;
-  top: 10px;
-  left: 290px;
-  width: 66px;
-  height: 42px;
-
 }
-li#d_miscount_5 {
+
+#d-miscount-5 {
   background: url('../images/flashImage/mis_5.png') no-repeat transparent;
-
-  position: absolute;
-  top: 10px;
-  left: 290px;
-  width: 66px;
-  height: 42px;
-
 }
-li#d_miscount_6 {
+
+#d-miscount-6 {
   background: url('../images/flashImage/mis_6.png') no-repeat transparent;
-
-  position: absolute;
-  top: 10px;
-  left: 290px;
-  width: 66px;
-  height: 42px;
-
 }
-li#d_miscount_7 {
+
+#d-miscount-7 {
   background: url('../images/flashImage/mis_7.png') no-repeat transparent;
-
-  position: absolute;
-  top: 10px;
-  left: 290px;
-  width: 66px;
-  height: 42px;
-
 }
-li#d_miscount_8 {
+
+#d-miscount-8 {
   background: url('../images/flashImage/mis_8.png') no-repeat transparent;
-
-  position: absolute;
-  top: 10px;
-  left: 290px;
-  width: 66px;
-  height: 42px;
-
 }
-
-
-
-
-
-
-
-
 
 #infoBar {
   width: 508px;
