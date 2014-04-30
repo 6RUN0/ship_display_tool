@@ -102,8 +102,8 @@ class fittingTools
 
     public static $loadCPUAdd = Array();
     public static $loadPowerAdd = Array();
-    function addFitting($home)
-    {
+
+    function addFitting($home) {
       $home->delete("fitting");
       $home->delete("victim");
       $home->delete("victimShip");
@@ -111,28 +111,22 @@ class fittingTools
       //$home->replace("top", "fittingTools::displayFitting");
     }
 
-  function RemoveContextFinalBlowTopDamage($home)
-  {
-    $home->delete("damageBox");
-  }
+    function RemoveContextFinalBlowTopDamage($home) {
+      $home->delete("damageBox");
+    }
 
-    function displayFitting($home)
-    {
+    function displayFitting($home) {
       global $smarty;
-    //require_once("common/includes/class.dogma.php");
+      //require_once("common/includes/class.dogma.php");
       $kll_id = $home->kll_id;
-    //echo "here";
-    //echo self::$oper;
-
-
+      //echo "here";
+      //echo self::$oper;
 
       self::$shipStats = new shipstats();
-
 
       $urlsettings = edkURI::parseURI();
       self::$simpleurl = $urlsettings[0][2];
       //echo "-> ".self::$simpleurl;
-
 
       $fitter = new fitting($kll_id);
       $theFit = $fitter->displayFitting();

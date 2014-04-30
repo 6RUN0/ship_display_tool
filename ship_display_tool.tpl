@@ -13,9 +13,7 @@
           <div class="shipview">
             <!--div id="{$backdrop}" style='left:{$left}px;top:{$top}px;'></div-->
             <!--img src="{$simpleurlheader}img/ships/256_256/{$getShipIcon}.png" alt="" id="shipImg"/-->
-            <img src="http://image.eveonline.com/Render/{$getShipIcon}_512.png" alt="" id="shipImg"/>
-
-
+            <div id="shipImg" style="background: url('http://image.eveonline.com/Render/{$getShipIcon}_512.png') 50% 50% no-repeat;"></div>
             <canvas id="shipCover" width="430" height="426"></canvas>
             <canvas id="shipcpu" width="72" height="152"></canvas>
             <canvas id="shipprg" width="152" height="72"></canvas>
