@@ -1,38 +1,32 @@
 <?php
-//require_once('common/includes/class.http.php');
 require_once('common/includes/class.httprequest.php');
 require_once('common/admin/admin_menu.php');
 
-$version = "2.8";
-
-/*$html .= "
-<script src='http://code.jquery.com/jquery.min.js' type='text/javascript'></script>
-<script type='text/javascript'>
-$(document).ready(function(){
-  $.getJSON('http://www.elementstudio.co.uk/downloads/v.json', function(data) {
-  
-  alert('here');
-  
-  })
-.success(function() { alert('second success'); })
-.error(function() { alert('error'); })
-.complete(function() { alert('complete'); });
-});
-</script>";*/
+$version = "4.0";
 
 $page = new Page('Ship Display tool - Settings');
 
-$html .= "Ship Display Tool Admin page.<br />Created by Spark's.<br />Enjoy.";
+$html .= "<p>Ship Display Tool Admin page.<br />Version: ".$version."</p>";
+$html .= "<p>Created by Spark's.<br />Updated by Darismel Abishai.</p>";
 
 
 $backgroundimg = config::get('ship_display_back');
 if($backgroundimg == "") {
-  $backgroundimg = "#222222";
+	$backgroundimg = "#222222";
 }
 $html .= "<br />
-<form name=\"add\" action=\"?a=settings_ship_display_tool&amp;step=add\" method=\"post\"><br /><br />
-  <div style='float:left; width:100%;'>Select your mod background colour in hash, Example: #ffffff: <input type='text' name='sel_back' value='".$backgroundimg."' /></div>
-  <div style='float:left; width:100%;'><input type=\"submit\" value=\"save\" /></div>
+<form name=\"add\" action=\"?a=settings_ship_display_tool&amp;step=add\" method=\"post\">
+	<table>
+		<tr>
+			<td>Background Color:</td><td><input type='text' name='sel_back' value='".$backgroundimg."' /></td>
+		</tr>
+		<tr>
+			<td></td><td>Example: #ffffff</td>
+		</tr>
+		<tr>
+			<td><input type=\"submit\" value=\"save\" /></td><td></td>
+		</tr>
+	</table>
 </form>
 ";
 

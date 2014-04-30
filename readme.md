@@ -1,22 +1,25 @@
-EvE Ship Display Tool (v3.0) developed by Spark's (Chris Sheppard)
+EvE Ship Display Tool (v4.0)
 ===
+Project Contributors:
+<ul>
+<li>Sparks's (Chris Sheppard, Authoring Developer)</li>
+<li>Hans Glockenspiel</li>
+<li>Kazhkaz</li>
+<li>Salvoxia</li>
+<li>Darismel Abishai</li>
+</ul>
 
-Special thanks to Hans Glockenspiel (In-Game name) for helping out
-Another thank you to kazhkaz from the Eve Dev Killboard for his code input (Added Region name to the kill display on v0.99).
+Please sumbit any bugs or feature requests to the evekb forum: <a href='http://www.evekb.org/forum/viewtopic.php?f=505&t=17295'>Here</a>. 
 
-The Stats may not be 100% correct but maybe corrected so please contact me, my aim is to make sure that these stats are correct.
-
-Any issues with the Display tool Please send Spark's in Game EvE Mail or go to the eve-dev forum to post: Here. 
-
-Please provide as much information as you can regarding the error. A link to the killmail would be great aswell.
-
-Salvoxia has been awesome in adding tweaks to the codebase
+Please provide as much information as you can regarding the error or request. Link to a killboard impacted by the bug would be great as well.
 
 Change log:
 ===
-3.0: Asorted fixes across all ships. Complete overhaul of the stat system. Clean up of the code.
+4.0: Updated codebase to work with EDK 4.2+ (Will not work on earlier versions of EDK).
 
-2.9: Fixed Stealth bomber Powergrid issues. Fixed Acillary Shield bosters. Made ship images feed from Eve-online.
+3.0: Assorted fixes across all ships. Complete overhaul of the stat system. Clean up of the code.
+
+2.9: Fixed Stealth bomber Powergrid issues. Fixed Acillary Shield boosters. Made ship images feed from Eve-online.
 
 2.8: Fixed inferno modules and sorted new covert ops ships background positions
 
@@ -24,7 +27,7 @@ Change log:
 
 2.6: Assorted fixes to CPU and power grid
 
-2.5: New look simular to in game, better performance, CPU, Powergrid, Calibration, Final blow, Top damage, API verification, Turret and Missile added.
+2.5: New look similar to in game Ship Fitting window, better performance, CPU, Powergrid, Calibration, Final blow, Top damage, API verification, Turret and Missile added.
 
 2.1: Fixed noob ships. Fixed display none base root sites. Again Chimeria Fixed. Classified Systems fixed. Damage 0 fixed. Images now use built in EDK4 OO Item to get image data. Simple URL with Ship mod Fixed.
 
@@ -44,11 +47,11 @@ Change log:
 
 1.1: MWD stats fixed again
 
-1.0: Add system colours. Fixed minior bugs
+1.0: Add system colours. Fixed minor bugs
 
 0.99: Added MWD icon. Added Region name on the kill display. Added new tags
 
-0.98: Support for the new incusion ships
+0.98: Support for the new incursion ships
 
 0.93: Fixed issue with Marauders
 
