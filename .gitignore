@@ -1,3 +1,8 @@
 *.bak
 *~
 *.swp
+*.BACKUP.*
+*.REMOTE.*
+*.BASE.*
+*.LOCAL.*
+*.orig
