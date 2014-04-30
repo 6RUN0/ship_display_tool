@@ -56,7 +56,6 @@
               <li id="d-missile"></li>
               <li id="d-turcount-{$getTurUsed}" class="tur-item"></li>
               <li id="d-miscount-{$getMisUsed}" class="mis-item"></li>
-              <li>mis</li>
             {if $modSlotsh}
               {foreach $modSlotsh as $value}
                 <li id="high-slot-{$value@key}" class="slot"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
