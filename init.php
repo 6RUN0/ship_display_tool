@@ -3958,7 +3958,6 @@ function applyShipSkills($bonus, $type, $mode, $effect, $shipEff, $skillBonus, $
   if(strtolower($effect) == "turrethardpointmodifier") {
     if($bonus != 0) {
       self::$shipStats->setTurAmount($bonus);
-      self::$shipStats->setTurUsed($bonus);
     }
     return true;
   }
