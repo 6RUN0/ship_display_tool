@@ -1,3 +1,4 @@
+<!-- ship_display_tool.tpl -->
 <link rel="stylesheet" href="{$simpleurlheader}/mods/ship_display_tool/style/style.css" type="text/css" media="all" />
 
 
@@ -229,31 +230,31 @@
       <li class="libody kb-table-row-even">
         <ul class="tier5 header">
           <li class="title fixheight" id="{$getTankType}">{$getTankAmount}</li>
-          <li id="headerEM"></li>
-          <li id="headerTH"></li>
-          <li id="headerKI"></li>
-          <li id="headerEX"></li>
+          <li class="header-em"></li>
+          <li class="header-thermal"></li>
+          <li class="header-kinetic"></li>
+          <li class="header-explosive"></li>
         </ul>
         <ul class="tier5 shield">
           <li class="title"><p>{$getShieldAmount}</p><p class="full">{$getShieldRecharge}</p></li>
-          <li id="shieldEM"><span class="res_back" style="width:{$getShieldEMPS}px;"></span><span class="res_push">{$getShieldEM}</span></li>
-          <li id="shieldTH"><span class="res_back" style="width:{$getShieldThPS}px;"></span><span class="res_push">{$getShieldTh}</span></li>
-          <li id="shieldKI"><span class="res_back" style="width:{$getShieldKiPS}px;"></span><span class="res_push">{$getShieldKi}</span></li>
-          <li id="shieldEX"><span class="res_back" style="width:{$getShieldExPS}px;"></span><span class="res_push">{$getShieldEx}</span></li>
+          <li class="resist-em"><span class="resist-em-bg" style="width:{$getShieldEMPS}px;"></span><span class="resist-push">{$getShieldEM}</span></li>
+          <li class="resist-thermal"><span class="resist-thermal-bg" style="width:{$getShieldThPS}px;"></span><span class="resist-push">{$getShieldTh}</span></li>
+          <li class="resist-kinetic"><span class="resist-kinetic-bg" style="width:{$getShieldKiPS}px;"></span><span class="resist-push">{$getShieldKi}</span></li>
+          <li class="resist-explosive"><span class="resist-explosive-bg" style="width:{$getShieldExPS}px;"></span><span class="resist-push">{$getShieldEx}</span></li>
         </ul>
         <ul class="tier5 armour">
           <li class="title fixheight">{$getArmorAmount}</li>
-          <li id="armourEM"><span class="res_back" style="width:{$getArmorEMPS}px;"></span><span class="res_push">{$getArmorEM}</span></li>
-          <li id="armourTH"><span class="res_back" style="width:{$getArmorThPS}px;"></span><span class="res_push">{$getArmorTh}</span></li>
-          <li id="armourKI"><span class="res_back" style="width:{$getArmorKiPS}px;"></span><span class="res_push">{$getArmorKi}</span></li>
-          <li id="armourEX"><span class="res_back" style="width:{$getArmorExPS}px;"></span><span class="res_push">{$getArmorEx}</span></li>
+          <li class="resist-em"><span class="resist-em-bg" style="width:{$getArmorEMPS}px;"></span><span class="resist-push">{$getArmorEM}</span></li>
+          <li class="resist-thermal"><span class="resist-thermal-bg" style="width:{$getArmorThPS}px;"></span><span class="resist-push">{$getArmorTh}</span></li>
+          <li class="resist-kinetic"><span class="resist-kinetic-bg" style="width:{$getArmorKiPS}px;"></span><span class="resist-push">{$getArmorKi}</span></li>
+          <li class="resist-explosive"><span class="resist-explosive-bg" style="width:{$getArmorExPS}px;"></span><span class="resist-push">{$getArmorEx}</span></li>
         </ul>
         <ul class="tier5 hull">
           <li class="title fixheight">{$getHullAmount}</li>
-          <li id="hullEM"><span class="res_back" style="width:{$getHullEMPS}px;"></span><span class="res_push">{$getHullEM}</span></li>
-          <li id="hullTH"><span class="res_back" style="width:{$getHullThPS}px;"></span><span class="res_push">{$getHullTh}</span></li>
-          <li id="hullKI"><span class="res_back" style="width:{$getHullKiPS}px;"></span><span class="res_push">{$getHullKi}</span></li>
-          <li id="hullEX"><span class="res_back" style="width:{$getHullExPS}px;"></span><span class="res_push">{$getHullEx}</span></li>
+          <li class="resist-em"><span class="resist-em-bg" style="width:{$getHullEMPS}px;"></span><span class="resist-push">{$getHullEM}</span></li>
+          <li class="resist-thermal"><span class="resist-thermal-bg" style="width:{$getHullThPS}px;"></span><span class="resist-push">{$getHullTh}</span></li>
+          <li class="resist-kinetic"><span class="resist-kinetic-bg" style="width:{$getHullKiPS}px;"></span><span class="resist-push">{$getHullKi}</span></li>
+          <li class="resist-explosive"><span class="resist-explosive-bg" style="width:{$getHullExPS}px;"></span><span class="resist-push">{$getHullEx}</span></li>
         </ul>
       </li>
     </ul>
@@ -354,3 +355,4 @@
   </div>
 </div>
 </div>
+<!-- /ship_display_tool.tpl -->
