@@ -1,6 +1,6 @@
 <?php
 $modInfo['ship_display_tool']['name'] = "Ship Display Tool";
-$modInfo['ship_display_tool']['abstract'] = "Displays Ship stats on the kill detials page";
+$modInfo['ship_display_tool']['abstract'] = 'Displays Ship stats on the kill detials page (<a href="https://github.com/6RUN0/ship_display_tool">Get source code</a>)';
 $modInfo['ship_display_tool']['about'] = "by Spark's";
 
 //require_once('common/includes/class.kill.php');
@@ -19,6 +19,11 @@ $operation = true;
   include('class.shipEffects.php');
   event::register("killDetail_assembling", "fittingTools::addFitting");
   event::register("killDetail_context_assembling", "fittingTools::RemoveContextFinalBlowTopDamage");
+
+define('SDT_SENSOR_RADAR', 'radar');
+define('SDT_SENSOR_GRAVIMETRIC', 'gravimetric');
+define('SDT_SENSOR_MAGNETOMETRIC', 'magnetometric');
+define('SDT_SENSOR_LADAR', 'ladar');
 
 class fittingTools
 {
@@ -650,19 +655,19 @@ where typeID = ".$typeID['typeID']);
     }
 
     if(strtolower($row['attributeName']) == "scanradarstrength" && $row['value'] > 0) {
-      self::$shipStats->setSensorType(fittingTools::getSensorTypeImg('radar'));
+      self::$shipStats->setSensorType(SDT_SENSOR_RADAR);
       self::$shipStats->setSensorAmount($row['value']);
     }
     if(strtolower($row['attributeName']) == "scanladarstrength" && $row['value'] > 0) {
-      self::$shipStats->setSensorType(fittingTools::getSensorTypeImg('ladar'));
+      self::$shipStats->setSensorType(SDT_SENSOR_LADAR);
       self::$shipStats->setSensorAmount($row['value']);
     }
     if(strtolower($row['attributeName']) == "scanmagnetometricstrength" && $row['value'] > 0) {
-      self::$shipStats->setSensorType(fittingTools::getSensorTypeImg('magnetometric'));
+      self::$shipStats->setSensorType(SDT_SENSOR_MAGNETOMETRIC);
       self::$shipStats->setSensorAmount($row['value']);
     }
     if(strtolower($row['attributeName']) == "scangravimetricstrength" && $row['value'] > 0) {
-      self::$shipStats->setSensorType(fittingTools::getSensorTypeImg('gravimetric'));
+      self::$shipStats->setSensorType(SDT_SENSOR_GRAVIMETRIC);
       self::$shipStats->setSensorAmount($row['value']);
     }
 
@@ -1212,8 +1217,9 @@ function returnTankResults($tankType) {
   $total = 0;
   $dur = 1;
   $boost = 0;
-  if(self::$shipStats->getTankBoost()) {
-    foreach(self::$shipStats->getTankBoost() as $i => $value) {
+  $tank_boost = self::$shipStats->getTankBoost();
+  if(is_array($tank_boost)) {
+    foreach($tank_boost as $i => $value) {
       if($value['type'] == $tankType) {
         $boost = $value['boost'];
         if($value['type'] == "shield") {
@@ -2601,19 +2607,19 @@ function moduleInfo($param_moduleArray) {
   $arr = self::$shipStats->getShipSlots();
 
   for($h = $hig; $h < $arr['hislots']; $h++) {
-    self::$modSlots[27][] = array('id'=> 0,'name'=> 'Empty High Slot', 'iconloc'=> ((self::$simpleurl)?fittingTools::curPageURL():"").'mods/ship_display_tool/images/equipment/icon00_hig.png', 'metaLevel' => 0, 'techLevel' => 0, 'capacity' => 0, 'volume' => 0, 'mass' => 0);
+    self::$modSlots[27][] = array('id'=> 0,'name'=> 'Empty High Slot', 'iconloc'=> ((self::$simpleurl)?fittingTools::curPageURL():"").'mods/ship_display_tool/img/high-slot.png', 'metaLevel' => 0, 'techLevel' => 0, 'capacity' => 0, 'volume' => 0, 'mass' => 0);
   }
 
   for($m = $mid; $m < $arr['medslots']; $m++) {
-    self::$modSlots[19][] = array('id'=> 0,'name'=> 'Empty Mid Slot', 'iconloc'=> ((self::$simpleurl)?fittingTools::curPageURL():"").'mods/ship_display_tool/images/equipment/icon00_mid.png', 'metaLevel' => 0, 'techLevel' => 0, 'capacity' => 0, 'volume' => 0, 'mass' => 0);
+    self::$modSlots[19][] = array('id'=> 0,'name'=> 'Empty Mid Slot', 'iconloc'=> ((self::$simpleurl)?fittingTools::curPageURL():"").'mods/ship_display_tool/img/medium-slot.png', 'metaLevel' => 0, 'techLevel' => 0, 'capacity' => 0, 'volume' => 0, 'mass' => 0);
   }
 
   for($l = $low; $l < $arr['lowslots']; $l++) {
-    self::$modSlots[11][] = array('id'=> 0,'name'=> 'Empty Low Slot', 'iconloc'=> ((self::$simpleurl)?fittingTools::curPageURL():"").'mods/ship_display_tool/images/equipment/icon00_low.png', 'metaLevel' => 0, 'techLevel' => 0, 'capacity' => 0, 'volume' => 0, 'mass' => 0);
+    self::$modSlots[11][] = array('id'=> 0,'name'=> 'Empty Low Slot', 'iconloc'=> ((self::$simpleurl)?fittingTools::curPageURL():"").'mods/ship_display_tool/img/low-slot.png', 'metaLevel' => 0, 'techLevel' => 0, 'capacity' => 0, 'volume' => 0, 'mass' => 0);
   }
 
   for($r = $rig; $r < $arr['rigslots']; $r++) {
-    self::$modSlots[92][] = array('id'=> 0,'name'=> 'Empty Rig Slot', 'iconloc'=> ((self::$simpleurl)?fittingTools::curPageURL():"").'mods/ship_display_tool/images/equipment/icon00_rig.png', 'metaLevel' => 0, 'techLevel' => 0, 'capacity' => 0, 'volume' => 0, 'mass' => 0);
+    self::$modSlots[92][] = array('id'=> 0,'name'=> 'Empty Rig Slot', 'iconloc'=> ((self::$simpleurl)?fittingTools::curPageURL():"").'mods/ship_display_tool/img/rig-slot.png', 'metaLevel' => 0, 'techLevel' => 0, 'capacity' => 0, 'volume' => 0, 'mass' => 0);
   }
 
   if(!empty(self::$modSlots[125])) {
@@ -2974,7 +2980,13 @@ function applyDroneSkills($bonus, $type, $mode, $effect, $shipEff, $skillBonus, 
 }
 
 function setTank($module_param) {
-
+  /**
+   *  !!! bug
+   */
+  /*
+  echo '<pre>';
+  print_r($module_param);
+  echo '</pre>';*/
   if(strstr(strtolower($module_param), "shield booster")
   || strstr(strtolower($module_param), "shield overload")
   || strstr(strtolower($module_param), "clarity ward")
@@ -3059,22 +3071,22 @@ function applyShipSkills($bonus, $type, $mode, $effect, $shipEff, $skillBonus, $
   }
 
   if(strtolower($effect) == "scanradarstrength" && $bonus > 0 && $moduleLevel == 125) {
-    self::$shipStats->setSensorType(fittingTools::getSensorTypeImg('radar'));
+    self::$shipStats->setSensorType(SDT_SENSOR_RADAR);
     self::$shipStats->setSensorAmount($bonus);
     return true;
   }
   if(strtolower($effect) == "scanladarstrength" && $bonus > 0 && $moduleLevel == 125) {
-    self::$shipStats->setSensorType(fittingTools::getSensorTypeImg('ladar'));
+    self::$shipStats->setSensorType(SDT_SENSOR_LADAR);
     self::$shipStats->setSensorAmount($bonus);
     return true;
   }
   if(strtolower($effect) == "scanmagnetometricstrength" && $bonus > 0 && $moduleLevel == 125) {
-    self::$shipStats->setSensorType(fittingTools::getSensorTypeImg('magnetometric'));
+    self::$shipStats->setSensorType(SDT_SENSOR_MAGNETOMETRIC);
     self::$shipStats->setSensorAmount($bonus);
     return true;
   }
   if(strtolower($effect) == "scangravimetricstrength" && $bonus > 0 && $moduleLevel == 125) {
-    self::$shipStats->setSensorType(fittingTools::getSensorTypeImg('gravimetric'));
+    self::$shipStats->setSensorType(SDT_SENSOR_GRAVIMETRIC);
     self::$shipStats->setSensorAmount($bonus);
     return true;
   }
@@ -5609,7 +5621,6 @@ function displayShipStats($param_ship, $param_shipimgx, $param_shipimgy) {
 
   $smarty->assign('modSlotsd', self::$modSlots[6]);
   $smarty->assign('modSlotsa', self::$modSlots[10]);
-  $smarty->assign('displayOutput', fittingTools::displayOutput());
 
   return $smarty->fetch("../../../mods/ship_display_tool/ship_display_tool.tpl");
 }
@@ -5716,29 +5727,6 @@ function ShortenText($text,$chars) {
     $text = $text." ...";
   }
   return $text;
-}
-
-function getSensorTypeImg($sensor_param) {
-
-  switch($sensor_param) {
-    case "radar":
-      return "Icon63_16";
-    break;
-    case "ladar":
-      return "Icon63_15";
-    break;
-    case "magnetometric":
-      return "Icon63_14";
-    break;
-    case "gravimetric":
-      return "Icon63_13";
-    break;
-    default:
-      return "icon04_12";
-    break;
-  }
-
-
 }
 
 function returnPixelSize($amount_param, $pixil_param) {
@@ -5855,25 +5843,6 @@ function capInjector($capBooster, $storage, $size, $duration) {
     return ($capBooster/((floor($storage/$size)*$duration)+10))*floor($storage/$size);
   }
 
-}
-
-function displayOutput() {
-
-  $currentversion = "4.0";
-
-  $title = "<h1>EvE Ship Display Tool (v$currentversion)</h1>";
-  $body = "<p>Replaces the stock fitting window on killmails with one that better resembles the in-game Ship Fitting window.</p><p><h3>Project Contributors:</h3><ul style=\"list-style-type: square\;\"><li>Sparks\'s (Chris Sheppard, Authoring Developer)</li><li>Hans Glockenspiel</li><li>Kazhkaz</li><li>Salvoxia</li><li>Darismel Abishai</li></ul>Please submit any bugs or feature requests to the evekb forum: <a href=\'http://www.evekb.org/forum/viewtopic.php?f=505&t=21721\'>Here</a>.<br>Please provide as much information as you can regarding the error or request.<br><br>A link to a killboard impacted by the bug would be great as well.</p><p><h3>Change log:</h3>4.0: Codebase forked to work with EDK 4.2+<br><b>Note:</b> For installations prior to EDK 4.2 please use SDT 3.0 available <a href=\'http://www.evekb.org/forum/viewtopic.php?f=505&t=17295\'>here</a>.</div>";
-  $display .= "<html><head><link rel=\'stylesheet\' type=\'text/css\' href=\'".fittingTools::curPageURL()."mods/ship_display_tool/style/style.css\' /><link rel=\'stylesheet\' type=\'text/css\' href=\'".fittingTools::curPageURL()."themes/default/default.css\' /><title>Ship Display Tool</title></head><body><div id=\'frame\'><div id=\'topImg\'></div><div id=\'titleBar\'>$title</div><div id=\'bodyBar\'>$body</div></body></html>";
-
-
-  //$jscommand = "newwindow2=window.open('','','height=500,width=300,toolbar=no,scrollbars=yes');  var tmp = newwindow2.document;  tmp.write('<html><head><title>Ship Display Tool</title></head><body>".$display."</body></html>');tmp.close();";
-  $jscommand = "newwindow2=window.open('','','height=401,width=501,toolbar=no,scrollbars=yes');
-  var tmp = newwindow2.document;
-  tmp.write('".$display."');
-  tmp.close();";
-
-  //return "" . $jscommand . "";
-  return "javascript:" . htmlentities($jscommand, ENT_QUOTES) . " void(0);";
 }
 
 function curPageURL() {
@@ -6221,20 +6190,20 @@ function subsystemaddon($modname_param) {
     break;
   }
 
-if(strtolower($effect) == "scanradarstrength" && $bonus > 0 && $moduleLevel == 125) {
-    self::$shipStats->setSensorType(fittingTools::getSensorTypeImg('radar'));
+  if(strtolower($effect) == "scanradarstrength" && $bonus > 0 && $moduleLevel == 125) {
+    self::$shipStats->setSensorType(SDT_SENSOR_RADAR);
     self::$shipStats->setSensorAmount($bonus);
   }
   if(strtolower($effect) == "scanladarstrength" && $bonus > 0 && $moduleLevel == 125) {
-    self::$shipStats->setSensorType(fittingTools::getSensorTypeImg('ladar'));
+    self::$shipStats->setSensorType(SDT_SENSOR_LADAR);
     self::$shipStats->setSensorAmount($bonus);
   }
   if(strtolower($effect) == "scanmagnetometricstrength" && $bonus > 0 && $moduleLevel == 125) {
-    self::$shipStats->setSensorType(fittingTools::getSensorTypeImg('magnetometric'));
+    self::$shipStats->setSensorType(SDT_SENSOR_MAGNETOMETRIC);
     self::$shipStats->setSensorAmount($bonus);
   }
   if(strtolower($effect) == "scangravimetricstrength" && $bonus > 0 && $moduleLevel == 125) {
-    self::$shipStats->setSensorType(fittingTools::getSensorTypeImg('gravimetric'));
+    self::$shipStats->setSensorType(SDT_SENSOR_GRAVIMETRIC);
     self::$shipStats->setSensorAmount($bonus);
   }
 

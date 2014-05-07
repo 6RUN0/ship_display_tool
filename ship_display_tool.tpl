@@ -1,358 +1,435 @@
 <!-- ship_display_tool.tpl -->
-<link rel="stylesheet" href="{$simpleurlheader}/mods/ship_display_tool/style/style.css" type="text/css" media="all" />
+<link rel="stylesheet" href="{$simpleurlheader}/mods/ship_display_tool/style.css" type="text/css" media="all" />
+<style type="text/css">
+.sdt-tr-bg {
+  background: {$ship_display_back};
+}
+</style>
 
-
-<div class="controllerFitter">
-<div id="fitcontainer">
-
-  <ul id="infoBar">
-
-    <li class="infosect">
-      <ul id="victimBodycontainer">
-        <li class="liheader kb-table-header"><a href="{$getPilotNameURL}">{$getPilotName}</a> lost a <a href="{$getPilotShipURL}">{$getPilotShip}</a> ({$getPilotShipClass}) in <a href="{$getPilotLocURL}">{$getPilotLoc}</a> - {$getPilotLocReg} ({$getPilotLocSec})</li>
-        <li id="shipcontainer" class="kb-table-row-even">
-          <div class="shipview">
-            <!--div id="{$backdrop}" style='left:{$left}px;top:{$top}px;'></div-->
-            <!--img src="{$simpleurlheader}img/ships/256_256/{$getShipIcon}.png" alt="" id="shipImg"/-->
-            <img id="shipImg" alt="{$getPilotShip}" title="{$getPilotShip}" src="http://image.eveonline.com/Render/{$getShipIcon}_512.png" />
-            <canvas id="shipCover" width="430" height="426"></canvas>
-            <canvas id="shipcpu" width="72" height="152"></canvas>
-            <canvas id="shipprg" width="152" height="72"></canvas>
-            <canvas id="shipcal" width="65" height="102"></canvas>
+<div id="sdt-wrapper">
+  <div id="sdt-info-bar">
+    <table class="sdt-table"><tbody>
+      <tr>
+        <th class="sdt-th">
+          <span class="sdt-left">
+            <a href="{$getPilotNameURL}">{$getPilotName}</a> lost a <a href="{$getPilotShipURL}">{$getPilotShip}</a> ({$getPilotShipClass}) in <a href="{$getPilotLocURL}">{$getPilotLoc}</a> - {$getPilotLocReg} ({$getPilotLocSec}) 
+          </span>
+        </th>
+      </tr>
+      <tr class="sdt-tr-bg"><td class="sdt-td-wrap">
+        <table class="sdt-table"><tbody><tr>
+          <td class="sdt-shipview">
+            <img id="sdt-ship-img" alt="{$getPilotShip}" title="{$getPilotShip}" src="http://image.eveonline.com/Render/{$getShipIcon}_512.png" />
+            <canvas id="sdt-ship-cpu" width="72" height="152"></canvas>
+            <canvas id="sdt-ship-powergrid" width="152" height="72"></canvas>
+            <canvas id="sdt-ship-calibration" width="65" height="102"></canvas>
             <script>
+              var canvas2 = document.getElementById("sdt-ship-cpu");
+              var context2 = canvas2.getContext("2d");
+              context2.moveTo({$percpuxs}, {$percpuys});
+              context2.quadraticCurveTo({$percpux1}, {$percpuy1}, {$percpuxe}, {$percpuye});
+              context2.lineWidth = 8;
+              context2.strokeStyle = "#356160"; // line color
+              context2.stroke();
 
-                var canvas2 = document.getElementById("shipcpu");
-                var context2 = canvas2.getContext("2d");
-                context2.moveTo({$percpuxs}, {$percpuys});
-                context2.quadraticCurveTo({$percpux1}, {$percpuy1}, {$percpuxe}, {$percpuye});
-                context2.lineWidth = 8;
-                context2.strokeStyle = "#356160"; // line color
-                context2.stroke();
+              var canvas3 = document.getElementById("sdt-ship-powergrid");
+              var context3 = canvas3.getContext("2d");
+              context3.moveTo({$perprgxs}, {$perprgys});
+              context3.quadraticCurveTo({$perprgx1}, {$perprgy1}, {$perprgxe}, {$perprgye});
+              context3.lineWidth = 8;
+              context3.strokeStyle = "#67160a"; // line color
+              context3.stroke();
 
-
-                var canvas3 = document.getElementById("shipprg");
-                var context3 = canvas3.getContext("2d");
-                context3.moveTo({$perprgxs}, {$perprgys});
-                context3.quadraticCurveTo({$perprgx1}, {$perprgy1}, {$perprgxe}, {$perprgye});
-                context3.lineWidth = 8;
-                context3.strokeStyle = "#67160a"; // line color
-                context3.stroke();
-
-
-                var canvas4 = document.getElementById("shipcal");
-                var context4 = canvas4.getContext("2d");
-                context4.moveTo({$percalxs}, {$percalys});
-                context4.quadraticCurveTo({$percalx1}, {$percaly1}, {$percalxe}, {$percalye});
-                context4.lineWidth = 8;
-                context4.strokeStyle = "#4a5356";
-                context4.stroke();
-
-
+              var canvas4 = document.getElementById("sdt-ship-calibration");
+              var context4 = canvas4.getContext("2d");
+              context4.moveTo({$percalxs}, {$percalys});
+              context4.quadraticCurveTo({$percalx1}, {$percaly1}, {$percalxe}, {$percalye});
+              context4.lineWidth = 8;
+              context4.strokeStyle = "#4a5356";
+              context4.stroke();
             </script>
-            <div id="fitting_view"></div>
-
-
-            <ul>
-              <li id="d-turret"></li>
-              <li id="d-missile"></li>
-              <li id="d-turcount-{$getTurUsed}" class="tur-item"></li>
-              <li id="d-miscount-{$getMisUsed}" class="mis-item"></li>
+            <div id="sdt-fit-view"></div>
+            <div id="sdt-turret" class="sdt-icon-32"></div>
+            <div id="sdt-missile" class="sdt-icon-32"></div>
+            <img id="sdt-turret-count" class="weapon-count" src="{$simpleurlheader}/mods/ship_display_tool/img/turret-{$getTurUsed}.png" />
+            <img id="sdt-missile-count" class="weapon-count" src="{$simpleurlheader}/mods/ship_display_tool/img/missile-{$getMisUsed}.png" />
             {if $modSlotsh}
               {foreach $modSlotsh as $value}
-                <li id="high-slot-{$value@key}" class="slot"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
+                <div id="sdt-high-slot-{$value@key}" class="slot"><img class="sdt-icon-40" src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" /></div>
               {/foreach}
             {/if}
             {if $modSlotsm}
               {foreach $modSlotsm as $value}
-                <li id="medium-slot-{$value@key}" class="slot"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
+                <div id="sdt-medium-slot-{$value@key}" class="slot"><img class="sdt-icon-40" src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" /></div>
               {/foreach}
             {/if}
             {if $modSlotsl}
               {foreach $modSlotsl as $value}
-                <li id="low-slot-{$value@key}" class="slot"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
+                <div id="sdt-low-slot-{$value@key}" class="slot"><img class="sdt-icon-40" src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" /></div>
               {/foreach}
             {/if}
             {if $modSlotsr}
               {foreach $modSlotsr as $value}
-                <li id="rig-slot-{$value@key}" class="slot"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
+                <div id="sdt-rig-slot-{$value@key}" class="slot"><img class="sdt-icon-40" src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" /></div>
               {/foreach}
             {/if}
             {if $modSlotss}
               {foreach $modSlotss as $value}
-                <li id="sub-sys-slot-{$value@key}" class="slot"><img src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" width="40px" height="40px" /></li>
+                <div id="sdt-sub-sys-slot-{$value@key}" class="slot"><img class="sdt-icon-40" src="{$value.iconloc}" alt="{$value.name}" title="{$value.name}" /></div>
               {/foreach}
             {/if}
-            </ul>
 
-            <ul id="fitting_cal">
-              <li>Calibration</li>
-              <li>{$usedcal} / {$totcal}</li>
-            </ul>
+            <table id="sdt-fit-calibration"><tbody>
+              <tr><td>Calibration</td></tr>
+              <tr><td>{$usedcal} / {$totcal}</td></tr>
+            </tbody></table>
 
-            <ul id="fitting_grid">
-              <li>CPU</li>
-              <li>{$usedcpu} / {$totcpu}</li>
-              <li class="space_grid"></li>
-              <li>Power grid</li>
-              <li>{$usedprg} / {$totprg}</li>
-            </ul>
+            <table id="sdt-fit-grid"><tbody>
+              <tr><td>CPU</td></tr>
+              <tr><td>{$usedcpu} / {$totcpu}</td></tr>
+              <tr><td>Power grid</td></tr>
+              <tr><td>{$usedprg} / {$totprg}</td></tr>
+            </tbody></table>
 
-            <ul id="km_posting">
-              <li>API: <span>{if $extid != 0}Yes{else}No{/if}</span></li>
-              <li>Source: <span>{if $type == "API"}API{else if $type == "IP"}Manual{else if $type == "URL"}Fetch{/if}</span></li>
-              <li>Damage: <span>{$getPilotDam}</span></li>
-              <li>Cost: <span>{$getPilotCos} isk</span></li>
-            </ul>
+            <table id="sdt-killmail-post"><tbody>
+              <tr>
+                <td>API:</td>
+                <td>{if $extid != 0}Yes{else}No{/if}</td>
+              </tr>
+              <tr>
+                <td>Source:</td>
+                <td>{if $type == "API"}API{else if $type == "IP"}Manual{else if $type == "URL"}Fetch{/if}</td>
+              </tr>
+              <tr>
+                <td>Damage:</td>
+                <td>{$getPilotDam}</td>
+              </tr>
+              <tr>
+                <td>Cost:</td>
+                <td>{$getPilotCos} isk</td>
+              </tr>
+            </tbody></table>
 
-          </div>
+          </td>
 
-          <div id="dronebar">
-            <ul class="containers">
-              <li class="liheader kb-table-header"></li>
+          <td class="sdt-bay sdt-td-img">
+            <img class="sdt-icon-32" src="{$simpleurlheader}/mods/ship_display_tool/img/dron-bay.png" alt="Dron bay" title="Dron bay" />
+            {if $modSlotsd}
+              {foreach $modSlotsd as $value}
+                {$value.iconloc}
+              {/foreach}
+            {/if}
+          </td>
 
-              <li class="libody kb-table-row-even">
-                <ul>
-                  {if $modSlotsd}
-                    {foreach $modSlotsd as $value}
-                      <li>{$value.iconloc}</li>
-                    {/foreach}
-                  {/if}
-                </ul>
-              </li>
-            </ul>
-          </div>
+          <td class="sdt-bay sdt-td-img">
+            <img class="sdt-icon-32" src="{$simpleurlheader}/mods/ship_display_tool/img/ammo.png" alt="Ammo" title="Ammo" />
+            {if $modSlotsa}
+              {foreach $modSlotsa as $value}
+                {$value.iconloc}
+              {/foreach}
+            {/if}
+          </td>
+        </tr></tbody></table>
+      </td></tr>
+      
+      <tr class="sdt-tr-bg">
+        <td class="sdt-td-wrap"><table class="sdt-table"><tbody><tr>
+          <td class="sdt-td-img">
+            <a href="{$getPilotNameURL}"><img class="sdt-icon-64" src="{$getPilotPort}" alt="{$getPilotName}" title="{$getPilotName}" /></a>
+          </td>
+          <td class="sdt-td-img">
+            <a href="{$getPilotCorpURL}"><img class="sdt-icon-32" src="{$getCorpPort}" alt="{$getPilotCorp}" title="{$getPilotCorp}" /></a>
+            <a href="{$getPilotAllianceURL}"><img class="sdt-icon-32" src="{$getAlliPort}" alt="{$getPilotAlliance}" title="{$getPilotAlliance}" /></a>
+          </td>
+          <td>
+            <table class="sdt-table"><tbody> 
+              <tr>
+                <td>Name:</td>
+                <td><a href="{$getPilotNameURL}">{$getPilotName}</a></td>
+              </tr>
+              <tr>
+                <td>Corp:</td>
+                <td><a href="{$getPilotCorpURL}">{$getPilotCorp}</a></td>
+              </tr>
+              <tr>
+                <td>Alliance:</td>
+                <td><a href="{$getPilotAllianceURL}">{$getPilotAlliance}</a></td>
+              </tr>
+              <tr>
+                <td>Date:</td>
+                <td>{$getPilotDate}</td>
+              </tr>
+            </tbody></table>
+          </td>
+          <td>
+            <table class="sdt-table"><tbody>
+              <tr>
+                <td>Ship:</td>
+                <td><a href="{$getPilotShipURL}">{$getPilotShip}</a> ({$getPilotShipClass})</td>
+              <tr>
+                <td>Location:</td>
+                <td><a href="{$getPilotLocURL}">{$getPilotLoc}</a> {$getPilotLocReg} ({$getPilotLocSec})</td>
+            </tbody></table>
+          </td>
+        </tbody></table></td>
+      </tr>
+    </tbody></table>
+  </div><!-- /#info-bar -->
 
-          <div id="cargobar">
-            <ul class="containers">
-              <li class="liheader kb-table-header"></li>
+  <div id="sdt-stat-bar">
 
-              <li class="libody kb-table-row-even">
-                <ul>
-                  {if $modSlotsa}
-                    {foreach $modSlotsa as $value}
-                      <li>{$value.iconloc}</li>
-                    {/foreach}
-                  {/if}
-                </ul>
-              </li>
-            </ul>
-          </div>
-
-        </li>
-        <li class="infosect">
-          <ul id="victimBodycontainer">
-            <li class="libody kb-table-row-even">
-              <ul id="victimcol">
-                <li class="port"><a href="{$getPilotNameURL}"><img src="{$getPilotPort}" alt="" /></a></li>
-                <li class="portmini"><a href="{$getPilotCorpURL}"><img src="{$getCorpPort}" alt="{$getPilotCorp}" title="{$getPilotCorp}" /></a></li>
-                <li class="portmini"><a href="{$getPilotAllianceURL}"><img src="{$getAlliPort}" alt="{$getPilotAlliance}" title="{$getPilotAlliance}" /></a></li>
-              </ul>
-              <ul id="victimcol1">
-                <li>Name: <span class="r_wid"><a href="{$getPilotNameURL}">{$getPilotName}</a></span></li>
-                <li>Corp: <span class="r_wid"><a href="{$getPilotCorpURL}">{$getPilotCorp}</a></span></li>
-                <li>Alliance: <span class="r_wid"><a href="{$getPilotAllianceURL}">{$getPilotAlliance}</a></span></li>
-                <li>Date: <span class="r_wid">{$getPilotDate}</span></li>
-              </ul>
-              <ul id="victimcol2">
-                <li>Ship: <span class="r_wid"><a href="{$getPilotShipURL}">{$getPilotShip}</a><br />({$getPilotShipClass})</span></li>
-                <li>Location: <span class="r_wid"><a href="{$getPilotLocURL}">{$getPilotLoc}</a><br /> {$getPilotLocReg} ({$getPilotLocSec})</span></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-
-
-
-  <div id="statbar">
-
-    <ul class="containers">
+    <table class="sdt-table"><tbody>
       {if $getCapStable}
-        <li class="liheader kb-table-header"><span class="arrow">Capacitor</span> <span class="right">Stable ({$capAmountMperc}%)</span></li>
-
-        <li class="libody kb-table-row-even">
-          <ul id="capContainer">
-            {if $capAmountMperc > 0 && $capAmountMperc <= 10}
-              <li class="cap_left" id="cap10"></li>
-            {else if $capAmountMperc > 10 && $capAmountMperc <= 20}
-              <li class="cap_left" id="cap20"></li>
-            {else if $capAmountMperc > 20 && $capAmountMperc <= 30}
-              <li class="cap_left" id="cap30"></li>
-            {else if $capAmountMperc > 30 && $capAmountMperc <= 40}
-              <li class="cap_left" id="cap40"></li>
-            {else if $capAmountMperc > 40 && $capAmountMperc <= 50}
-              <li class="cap_left" id="cap50"></li>
-            {else if $capAmountMperc > 50 && $capAmountMperc <= 60}
-              <li class="cap_left" id="cap60"></li>
-            {else if $capAmountMperc > 60 && $capAmountMperc <= 70}
-              <li class="cap_left" id="cap70"></li>
-            {else if $capAmountMperc > 70 && $capAmountMperc <= 80}
-              <li class="cap_left" id="cap80"></li>
-            {else if $capAmountMperc > 80 && $capAmountMperc <= 90}
-              <li class="cap_left" id="cap90"></li>
-            {else}
-              <li class="cap_left" id="cap100"></li>
-            {/if}
-            <li class="cap_right">{$getCapAmount} GJ / {$getCapRecharge}</li>
-            <li class="cap_right">-{$totalCapUse} GJ/s +{$totalCapInjected} GJ/s</li>
-          </ul>
-        </li>
+        <tr><th class="sdt-th">
+          <span class="sdt-left"><strong>Capacitor</strong></span> <span class="sdt-right sdt-ok">Stable ({$capAmountMperc}%)</span>
+        </th><tr>
+        <tr class="sdt-tr-bg"><td class="sdt-td-wrap">
+          <table class="sdt-table"><tbody><tr>
+            <td class="sdt-td-img sdt-icon-28 sdt-td-delimiter">
+              <img class="sdt-icon-28"  
+                {if $capAmountMperc > 0 && $capAmountMperc <= 10}
+                  src="{$simpleurlheader}/mods/ship_display_tool/img/cap-10.png"
+                {else if $capAmountMperc > 10 && $capAmountMperc <= 20}
+                  src="{$simpleurlheader}/mods/ship_display_tool/img/cap-20.png"
+                {else if $capAmountMperc > 20 && $capAmountMperc <= 30}
+                  src="{$simpleurlheader}/mods/ship_display_tool/img/cap-30.png"
+                {else if $capAmountMperc > 30 && $capAmountMperc <= 40}
+                  src="{$simpleurlheader}/mods/ship_display_tool/img/cap-40.png"
+                {else if $capAmountMperc > 40 && $capAmountMperc <= 50}
+                  src="{$simpleurlheader}/mods/ship_display_tool/img/cap-50.png"
+                {else if $capAmountMperc > 50 && $capAmountMperc <= 60}
+                  src="{$simpleurlheader}/mods/ship_display_tool/img/cap-60.png"
+                {else if $capAmountMperc > 60 && $capAmountMperc <= 70}
+                  src="{$simpleurlheader}/mods/ship_display_tool/img/cap-70.png"
+                {else if $capAmountMperc > 70 && $capAmountMperc <= 80}
+                  src="{$simpleurlheader}/mods/ship_display_tool/img/cap-80.png"
+                {else if $capAmountMperc > 80 && $capAmountMperc <= 90}
+                  src="{$simpleurlheader}/mods/ship_display_tool/img/cap90.png"
+                {else}
+                  src="{$simpleurlheader}/mods/ship_display_tool/img/cap-100.png"
+                {/if}
+              alt="Capacitor Stable ({$capAmountMperc}%)" title="Capacitor Stable ({$capAmountMperc}%)" />
+            </td>
+            <td>
+              <table class="sdt-table"><tbody>
+                <tr><td>{$getCapAmount} GJ / {$getCapRecharge}</td></tr>
+                <tr><td>-{$totalCapUse} GJ/s +{$totalCapInjected} GJ/s</td></tr>
+              </tbody></table>
+            </td>
+          </tr></tbody></table>
+        </td></tr>
       {else}
-        <li class="liheader kb-table-header"><span class="arrow">Capacitor</span> <span class="right">{$capAmountMperc}</span></li>
-
-        <li class="libody kb-table-row-even">
-          <ul id="capContainer">
-            <li class="cap_left" id="cap0"></li>
-            <li class="cap_right">{$getCapAmount} GJ / {$getCapRecharge}</li>
-            <li class="cap_right">-{$totalCapUse} GJ/s +{$totalCapInjected} GJ/s</li>
-          </ul>
-        </li>
+        <tr><th class="sdt-th">
+          <span class="sdt-left"><strong>Capacitor</strong></span> <span class="sdt-right sdt-fail">Depletes {$capAmountMperc}</span>
+        </th></tr>
+        <tr class="sdt-tr-bg"><td class="sdt-td-wrap">
+          <table class="sdt-table"><tbody><tr>
+            <td class="sdt-td-img sdt-icon-28 sdt-td-delimiter"><img class="sdt-icon-28" src="{$simpleurlheader}/mods/ship_display_tool/img/cap-0.png" alt="Capacitor {$capAmountMperc}" title="Capacitor {$capAmountMperc}" /></td>
+            <td>
+              <table class="sdt-table"><tbody>
+                <tr><td><span class="cap_right">{$getCapAmount} GJ / {$getCapRecharge}</span></td></tr>
+                <tr><td><span class="cap_right">-{$totalCapUse} GJ/s +{$totalCapInjected} GJ/s</span></td></tr>
+              </tbody></table>
+            </td>
+          </tr></tbody></table>
+        </td></tr>
       {/if}
-    </ul>
+    </tbody></table>
 
-    <ul class="containers">
-      <li class="liheader kb-table-header"><span class="arrow">Offense</span> <span class="right">{$getDamage} dps / {$getVolley} vol</span></li>
+    <table class="sdt-table sdt-table-delimiter"><tbody>
+      <tr><th class="sdt-th">
+        <span class="sdt-left"><strong>Offense</strong></span> <span class="sdt-right">{$getDamage} dps / {$getVolley} vol</span>
+      </th></tr>
+      <tr class="sdt-tr-bg"><td class="sdt-td-wrap">
+        <table class="sdt-table"><tbody><tr>
+          <td class="sdt-td-img sdt-td-sixth"><img class="sdt-icon-32" src="{$simpleurlheader}/mods/ship_display_tool/img/turret.png" alt="Turret" title="Turret" /></td>
+          <td class="sdt-td-sixth">{$getTurretDamage}</td>
+          <td class="sdt-td-img sdt-td-sixth"><img class="sdt-icon-32" src="{$simpleurlheader}/mods/ship_display_tool/img/drones.png" alt="Drone" title="Drone" /></td>
+          <td class="sdt-td-sixth">{$getDroneDamage}</td>
+          <td class="sdt-td-img sdt-td-sixth"><img class="sdt-icon-32" src="{$simpleurlheader}/mods/ship_display_tool/img/missile.png" alt="Missile" title="Missile" /></td>
+          <td>{$getMissileDamage}</td>
+        </tr></tbody></table>
+      </tr></td>
+    </tbody></table>
 
-      <li class="libody kb-table-row-even">
-        <ul class="tier3">
-          <li id="turret" class="fixheight">{$getTurretDamage}</li>
-          <li id="drone" class="fixheight">{$getDroneDamage}</li>
-          <li id="missile" class="fixheight">{$getMissileDamage}</li>
-        </ul>
-      </li>
-    </ul>
+    <table class="sdt-table sdt-table-delimiter"><tbody>
+      <tr><th class="sdt-th">
+        <span class="sdt-left"><strong>Defense</strong></span> <span class="sdt-right">{$getEffectiveHp} hp</span>
+      </th></tr>
+      <tr class="sdt-tr-bg"><td class="sdt-td-wrap">
+        <table class="sdt-table"><tbody>
+          <tr>
+            <td class="sdt-td-img"><img class="sdt-icon-32" 
+              {if $getTankType == "pass"}
+                src="{$simpleurlheader}/mods/ship_display_tool/img/passive-recharge.png" alt="Passive recharge" title="Passive recharge"
+              {else if $getTankType == "act"}
+                src="{$simpleurlheader}/mods/ship_display_tool/img/active-recharge.png" alt="Active recharge" title="Active recharge"
+              {else if $getTankType == "arm" || $getTankType == "hull"}
+                src="{$simpleurlheader}/mods/ship_display_tool/img/repair.png" alt="Repair" title="Repair"
+              {/if}
+            /></td>
+            <td>{$getTankAmount} hp/s</td>
+            <td class="sdt-td-img"><img class="sdt-icon-32" src="{$simpleurlheader}/mods/ship_display_tool/img/r-em.png" alt="EM" title="EM" /></td>
+            <td class="sdt-td-img"><img class="sdt-icon-32" src="{$simpleurlheader}/mods/ship_display_tool/img/r-therm.png" alt="Thermal" title="Thermal" /></td>
+            <td class="sdt-td-img"><img class="sdt-icon-32" src="{$simpleurlheader}/mods/ship_display_tool/img/r-kin.png" alt="Kinetic" title="Kinetic" /></td>
+            <td class="sdt-td-img"><img class="sdt-icon-32" src="{$simpleurlheader}/mods/ship_display_tool/img/r-expl.png" alt="Explosive" title="Explosive" /></td>
+          </tr>
+          <tr>
+            <td class="sdt-td-img"><img class="sdt-icon-32" src="{$simpleurlheader}/mods/ship_display_tool/img/shield-hp.png" alt="Shield" title="Shield" /></td>
+            <td>
+              <table class="sdt-table"><tbody>
+                <tr><td>{$getShieldAmount}</td></tr>
+                <tr><td>{$getShieldRecharge}</td></tr>
+              </tbody></table>
+            </td>
+            <td><div class="sdt-resist-em"><div class="sdt-resist-em-bg" style="width:{$getShieldEMPS}px;"><div class="sdt-resist-push">{$getShieldEM} %</div></div></div></td>
+            <td><div class="sdt-resist-thermal"><div class="sdt-resist-thermal-bg" style="width:{$getShieldThPS}px;"><div class="sdt-resist-push">{$getShieldTh} %</div></div></div></td>
+            <td><div class="sdt-resist-kinetic"><div class="sdt-resist-kinetic-bg" style="width:{$getShieldKiPS}px;"><div class="sdt-resist-push">{$getShieldKi} %</div></div></div></td>
+            <td><div class="sdt-resist-explosive"><div class="sdt-resist-explosive-bg" style="width:{$getShieldExPS}px;"><div class="sdt-resist-push">{$getShieldEx} %</div></div></div></td>
+          </tr>
+          <tr>
+            <td class="sdt-td-img"><img class="sdt-icon-32" src="{$simpleurlheader}/mods/ship_display_tool/img/armor-hp.png" alt="Armor" title="Armor" /></td>
+            <td>{$getArmorAmount}</td>
+            <td><div class="sdt-resist-em"><div class="sdt-resist-em-bg" style="width:{$getArmorEMPS}px;"><div class="sdt-resist-push">{$getArmorEM} %</div></div></div></td>
+            <td><div class="sdt-resist-thermal"><div class="sdt-resist-thermal-bg" style="width:{$getArmorThPS}px;"><div class="sdt-resist-push">{$getArmorTh} %</div></div></div></td>
+            <td><div class="sdt-resist-kinetic"><div class="sdt-resist-kinetic-bg" style="width:{$getArmorKiPS}px;"><div class="sdt-resist-push">{$getArmorKi} %</div></div></div></td>
+            <td><div class="sdt-resist-explosive"><div class="sdt-resist-explosive-bg" style="width:{$getArmorExPS}px;"><div class="sdt-resist-push">{$getArmorEx} %</div></div></div></td>
+          </tr>
+          <tr>
+            <td class="sdt-td-img"><img class="sdt-icon-32" src="{$simpleurlheader}/mods/ship_display_tool/img/hull-hp.png" alt="Hull" title="Hull" /></td>
+            <td>{$getHullAmount}</td>
+            <td><div class="sdt-resist-em"><div class="sdt-resist-em-bg" style="width:{$getHullEMPS}px;"><div class="sdt-resist-push">{$getHullEM} %</div></div></div></td>
+            <td><div class="sdt-resist-thermal"><div class="sdt-resist-thermal-bg" style="width:{$getHullThPS}px;"><div class="sdt-resist-push">{$getHullTh} %</div></div></div></td>
+            <td><div class="sdt-resist-kinetic"><div class="sdt-resist-kinetic-bg" style="width:{$getHullKiPS}px;"><div class="sdt-resist-push">{$getHullKi} %</div></div></div></td>
+            <td><div class="sdt-resist-explosive"><div class="sdt-resist-explosive-bg" style="width:{$getHullExPS}px;"><div class="sdt-resist-push">{$getHullEx} %</div></div></div></td>
+          </tr>
+        </tbody></table>
+      </td></tr>
+    </tbody></table>
 
-    <ul class="containers">
-      <li class="liheader kb-table-header"><span class="arrow">Defense</span> <span class="right">{$getEffectiveHp} hp</span></li>
+    <table class="sdt-table sdt-table-delimiter"><tbody>
+      <tr><th class="sdt-th"><span class="sdt-left"><strong>Targeting</strong></span> <span class="sdt-right">{$getDistance} km</span></th></tr>
+      <tr class="sdt-tr-bg"><td class="sdt-td-wrap">
+        <table class="sdt-table"><tbody>
+          <tr>
+            <td class="sdt-td-img sdt-icon-32 sdt-td-delimiter"><img class="sdt-icon-32" 
+              {if $getSensorType == "radar"}
+                src="{$simpleurlheader}/mods/ship_display_tool/img/radar.png" alt="Radar" title="Radar"
+              {else if $getSensorType == "gravimetric"}
+                src="{$simpleurlheader}/mods/ship_display_tool/img/gravimetric.png" alt="Gravimetric" title="Gravimetric"
+              {else if $getSensorType == "magnetometric"}
+                src="{$simpleurlheader}/mods/ship_display_tool/img/magnetometric.png" alt="Magnetometric" title="Magnetometric"
+              {else if $getSensorType == "ladar"}
+                src="{$simpleurlheader}/mods/ship_display_tool/img/ladar.png" alt="Ladar" title="Ladar"
+              {/if}
+            /></td>
+            <td>{$getSensorAmount} points</td>
+            <td class="sdt-td-img sdt-icon-32 sdt-td-delimiter"><img class="sdt-icon-32" src="{$simpleurlheader}/mods/ship_display_tool/img/scan-resolution.png" alt="Scan resolution" title="Scan resolution" /></td>
+            <td>{$getScan} mm</td>
+          </tr>
+          <tr>
+            <td class="sdt-td-img sdt-icon-32 sdt-td-delimiter"><img class="sdt-icon-32" src="{$simpleurlheader}/mods/ship_display_tool/img/signature-radius.png" alt="Signature radius" title="Signature radius" /></td>
+            <td>
+              <table class="sdt-table"><tbody>
+                <tr><td>{$getSigRadius} m</td></tr>
+                {if $mwdSigatureAct}
+                  <tr><td>{$mwdSigature} m</td></tr>
+                {/if}
+              </tbody></table>
+            </td>
+            <td class="sdt-td-img sdt-icon-32 sdt-td-delimiter"><img class="sdt-icon-32" src="{$simpleurlheader}/mods/ship_display_tool/img/target.png" alt="Tageting" title="Tageting" /></td>
+            <td>{$getTarget}x</td>
+          </tr>
+        </tbody></table>
+      </td></tr>
+    </tbody></table>
 
-      <li class="libody kb-table-row-even">
-        <ul class="tier5 header">
-          <li class="title fixheight" id="{$getTankType}">{$getTankAmount}</li>
-          <li class="header-em"></li>
-          <li class="header-thermal"></li>
-          <li class="header-kinetic"></li>
-          <li class="header-explosive"></li>
-        </ul>
-        <ul class="tier5 shield">
-          <li class="title"><p>{$getShieldAmount}</p><p class="full">{$getShieldRecharge}</p></li>
-          <li class="resist-em"><span class="resist-em-bg" style="width:{$getShieldEMPS}px;"></span><span class="resist-push">{$getShieldEM}</span></li>
-          <li class="resist-thermal"><span class="resist-thermal-bg" style="width:{$getShieldThPS}px;"></span><span class="resist-push">{$getShieldTh}</span></li>
-          <li class="resist-kinetic"><span class="resist-kinetic-bg" style="width:{$getShieldKiPS}px;"></span><span class="resist-push">{$getShieldKi}</span></li>
-          <li class="resist-explosive"><span class="resist-explosive-bg" style="width:{$getShieldExPS}px;"></span><span class="resist-push">{$getShieldEx}</span></li>
-        </ul>
-        <ul class="tier5 armour">
-          <li class="title fixheight">{$getArmorAmount}</li>
-          <li class="resist-em"><span class="resist-em-bg" style="width:{$getArmorEMPS}px;"></span><span class="resist-push">{$getArmorEM}</span></li>
-          <li class="resist-thermal"><span class="resist-thermal-bg" style="width:{$getArmorThPS}px;"></span><span class="resist-push">{$getArmorTh}</span></li>
-          <li class="resist-kinetic"><span class="resist-kinetic-bg" style="width:{$getArmorKiPS}px;"></span><span class="resist-push">{$getArmorKi}</span></li>
-          <li class="resist-explosive"><span class="resist-explosive-bg" style="width:{$getArmorExPS}px;"></span><span class="resist-push">{$getArmorEx}</span></li>
-        </ul>
-        <ul class="tier5 hull">
-          <li class="title fixheight">{$getHullAmount}</li>
-          <li class="resist-em"><span class="resist-em-bg" style="width:{$getHullEMPS}px;"></span><span class="resist-push">{$getHullEM}</span></li>
-          <li class="resist-thermal"><span class="resist-thermal-bg" style="width:{$getHullThPS}px;"></span><span class="resist-push">{$getHullTh}</span></li>
-          <li class="resist-kinetic"><span class="resist-kinetic-bg" style="width:{$getHullKiPS}px;"></span><span class="resist-push">{$getHullKi}</span></li>
-          <li class="resist-explosive"><span class="resist-explosive-bg" style="width:{$getHullExPS}px;"></span><span class="resist-push">{$getHullEx}</span></li>
-        </ul>
-      </li>
-    </ul>
+    <table class="sdt-table sdt-table-delimiter"><tbody>
+      <tr><th class="sdt-th"><span class="sdt-left"><strong>Navigation</strong></span> <span class="sdt-right">{$getShipSpeed} m/s</span></th></tr>
+      <tr class="sdt-tr-bg"><td class="sdt-td-wrap">
+        <table class="sdt-table"><tbody><tr>
+          <td class="sdt-td-img sdt-icon-32 sdt-td-delimiter"><img class="sdt-icon-32" src="{$simpleurlheader}/mods/ship_display_tool/img/mwd.png" alt="MicroWarpdrive" title="MicroWarpdrive" /></td>
+          <td>{$mwdActive}{if $mwdActiveAct} m/s{/if}</td>
+          <td class="sdt-td-img sdt-icon-32 sdt-td-delimiter"><img class="sdt-icon-32" src="{$simpleurlheader}/mods/ship_display_tool/img/ab.png" alt="Afterburner" title="Afterburner" /></td>
+          <td>{$abActive}{if $abActiveAct} m/s{/if}</td>
+        </tr></tbody></table>
+      </td></tr>
+    </tbody></table>
 
-    <ul class="containers">
-      <li class="liheader kb-table-header"><span class="arrow">Targeting</span> <span class="right">{$getDistance} km</span></li>
-
-      <li class="libody kb-table-row-even">
-        <ul class="tier2">
-          <li id="{$getSensorType}" class="fixheight">{$getSensorAmount} points</li>
-          <li id="scanres" class="fixheight">{$getScan} mm</li>
-          <li id="sigrad"><span class="full_nopad">{$getSigRadius} m</span>
-            {if $mwdSigatureAct}
-              <span class="full_nopad">{$mwdSigature} m</span>
-            {/if}
-          </li>
-          <li id="targets" class="fixheight">{$getTarget}x</li>
-        </ul>
-      </li>
-    </ul>
-
-    <ul class="containers">
-      <li class="liheader kb-table-header"><span class="arrow">Navigation</span> <span class="right">{$getShipSpeed} m/s</span></li>
-
-      <li class="libody kb-table-row-even">
-        <ul class="tier2" id="tier232">
-          <li id="propmwd" class="fixheight">
-            {$mwdActive}
-            {if $mwdActiveAct}
-               m/s
-            {/if}</li>
-          <li id="propab" class="fixheight">
-            {$abActive}
-            {if $abActiveAct}
-               m/s
-            {/if}
-          </li>
-        </ul>
-      </li>
-    </ul>
-
-    <ul class="containers">
-      <li class="infosect">
-        <ul id="topDamBodycontianer">
-          <li class="liheader kb-table-header">Top Damage</li>
-
-          <li class="libody kb-table-row-even">
-            <a href="{$topgetPilotURL}"><img src="{$topgetPilotIcon}" alt="{$topgetPilotName}" title="{$topgetPilotName}" /></a>
-            <a href="{$topgetCorpURL}"><img src="{$topgetCorpIcon}" alt="{$topgetCorpName}" title="{$topgetCorpName}" width="32px" height="32px" /></a>
-            <a href="{$topgetShipURL}"><img src="{$topgetShipIcon}" alt="{$topgetShipName}" title="{$topgetShipName}" width="32px" height="32px" /></a>
-            {if $topgetShipID != 0}
-              <a href="{$topgetAllianceURL}">
-                <img src="{$topgetAllianceIcon}" alt="{$topgetAllianceName}" title="{$topgetAllianceName}" width="32px" height="32px" />
-              </a>
-            {else}
-              <img src="{$topgetAllianceIcon}" alt="{$topgetAllianceName}" title="{$topgetAllianceName}" width="32px" height="32px" />
-            {/if}
-
-
-            {if $topgetWeaponID != 0}
-              <a href="{$topgetWeaponURL}">{$topgetWeaponIcon}</a>
-            {else}
-              {$topgetWeaponIcon}
-            {/if}
-          </li>
-        </ul>
-      </li>
-      <li class="infosect">
-        <ul id="finalBodycontianer">
-          <li class="liheader kb-table-header">Final Blow</li>
-
-          <li class="libody kb-table-row-even">
-            <a href="{$fingetPilotURL}"><img src="{$fingetPilotIcon}" alt="{$fingetPilotName}" title="{$fingetPilotName}" /></a>
-            <a href="{$fingetCorpURL}"><img src="{$fingetCorpIcon}" alt="{$fingetCorpName}" title="{$fingetCorpName}" width="32px" height="32px" /></a>
-            <a href="{$fingetShipURL}"><img src="{$fingetShipIcon}" alt="{$fingetShipName}" title="{$fingetShipName}" width="32px" height="32px" /></a>
-            {if $fingetShipID != 0}
-              <a href="{$fingetAllianceURL}">
-                <img src="{$fingetAllianceIcon}" alt="{$fingetAllianceName}" title="{$fingetAllianceName}" width="32px" height="32px" />
-              </a>
-            {else}
-              <img src="{$fingetAllianceIcon}" alt="{$fingetAllianceName}" title="{$fingetAllianceName}" width="32px" height="32px" />
-            {/if}
-
-
-            {if $fingetWeaponID != 0}
-              <a href="{$fingetWeaponURL}">{$fingetWeaponIcon}</a>
-            {else}
-              {$fingetWeaponIcon}
-            {/if}
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
-  <div id="infoIcon">
-    <a href="#" onclick="{$displayOutput}"><img src="{$simpleurlheader}/mods/ship_display_tool/images/flashImage/icon.png" alt="Info" title="Info" /></a>
-  </div>
-</div>
-</div>
+    <table class="sdt-table sdt-table-delimiter"><tbody><tr>
+      <td class="sdt-td-delimiter">
+        <table class="sdt-table"><tbody>
+          <tr><th class="sdt-th"><span class="sdt-left"><strong>Top Damage</strong></span></th></tr>
+          <tr class="sdt-tr-bg"><td>
+            <table class="sdt-table"><tbody><tr>
+              <td class="sdt-td-img">
+                <a href="{$topgetPilotURL}"><img class="sdt-icon-64" src="{$topgetPilotIcon}" alt="{$topgetPilotName}" title="{$topgetPilotName}" /></a>
+              </td>
+              <td>
+                <table class="sdt-table"><tbody>
+                  <tr>
+                    <td class="sdt-td-img"><a href="{$topgetCorpURL}"><img class="sdt-icon-32" src="{$topgetCorpIcon}" alt="{$topgetCorpName}" title="{$topgetCorpName}" /></a></td>
+                    <td class="sdt-td-img"><a href="{$topgetShipURL}"><img  class="sdt-icon-32" src="{$topgetShipIcon}" alt="{$topgetShipName}" title="{$topgetShipName}" /></a></td>
+                  </tr>
+                  <tr>
+                    <td class="sdt-td-img">
+                      {if $topgetShipID != 0}
+                        <a href="{$topgetAllianceURL}"><img class="sdt-icon-32" src="{$topgetAllianceIcon}" alt="{$topgetAllianceName}" title="{$topgetAllianceName}" /></a></td>
+                      {else}
+                        <img class="sdt-icon-32" src="{$topgetAllianceIcon}" alt="{$topgetAllianceName}" title="{$topgetAllianceName}" />
+                      {/if}
+                    </td>
+                    <td class="sdt-td-img">
+                      {if $topgetWeaponID != 0}
+                        <a href="{$topgetWeaponURL}">{$topgetWeaponIcon}</a>
+                      {else}
+                        {$topgetWeaponIcon}
+                      {/if}
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+            </tr></tbody></table>
+          </td></tr>
+        </tbody></table>
+      </td>
+      <td>
+        <table class="sdt-table"><tbody>
+          <tr><th class="sdt-th"><span class="sdt-left"><strong>Final Blow</strong></span></th></td>
+          <tr class="sdt-tr-bg"><td>
+            <table class="sdt-table"><tbody><tr>
+              <td class="sdt-td-img">
+                <a href="{$fingetPilotURL}"><img class="sdt-icon-64" src="{$fingetPilotIcon}" alt="{$fingetPilotName}" title="{$fingetPilotName}" /></a>
+              </td>
+              <td>
+                <table class="sdt-table"></tbody>
+                  <tr>
+                    <td class="sdt-td-img"><a href="{$fingetCorpURL}"><img class="sdt-icon-32" src="{$fingetCorpIcon}" alt="{$fingetCorpName}" title="{$fingetCorpName}" /></a></td>
+                    <td class="sdt-td-img"><a href="{$fingetShipURL}"><img class="sdt-icon-32" src="{$fingetShipIcon}" alt="{$fingetShipName}" title="{$fingetShipName}" /></a></td>
+                  </tr>
+                  <tr>
+                    <td class="sdt-td-img">
+                      {if $fingetShipID != 0}
+                        <a href="{$fingetAllianceURL}"><img class="sdt-icon-32" src="{$fingetAllianceIcon}" alt="{$fingetAllianceName}" title="{$fingetAllianceName}" /></a>
+                      {else}
+                        <img class="sdt-icon-32" src="{$fingetAllianceIcon}" alt="{$fingetAllianceName}" title="{$fingetAllianceName}" />
+                      {/if}
+                    </td>
+                    <td class="sdt-td-img">
+                      {if $fingetWeaponID != 0}
+                        <a href="{$fingetWeaponURL}">{$fingetWeaponIcon}</a>
+                      {else}
+                        {$fingetWeaponIcon}
+                      {/if}
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+            </tr></tbody></table>
+          </td></tr>
+        </tbody></table>
+      </td>
+    </tr></tbody></table>
+  </div><!-- /#stat-bar -->
+</div><!-- /#sdt-wrapper -->
 <!-- /ship_display_tool.tpl -->

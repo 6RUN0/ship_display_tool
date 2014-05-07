@@ -1,0 +1,424 @@
+#sdt-wrapper {
+  font-size: 10px;
+  line-height: 1.5;
+  width: 100%;
+}
+
+#sdt-info-bar {
+  float: left;
+  width: 500px;
+}
+
+#sdt-stat-bar {
+  float: left;
+  margin-left: 10px;
+  width: 260px;
+}
+
+/* ship display */
+.sdt-shipview {
+  float: left;
+  position: relative;
+  width: 430px;
+  height: 425px;
+  margin-top: 5px;
+  overflow: hidden;
+}
+
+#sdt-ship-img {
+  -khtml-border-radius: 200px;
+  -moz-border-radius: 200px;
+  -webkit-border-radius: 200px;
+  border-radius: 200px;
+  display: block;
+  height: 400px;
+  left: 15px;
+  position: relative;
+  top: 12px;
+  width: 400px;
+}
+
+#sdt-ship-cpu {
+  position: absolute;
+  top: 210px;
+  left: 357px;
+}
+
+#sdt-ship-powergrid {
+  position: absolute;
+  top: 355px;
+  left: 214px;
+}
+
+#sdt-ship-calibration {
+  position: absolute;
+  top: 67px;
+  left: 2px;
+}
+
+#sdt-fit-view {
+  position: absolute;
+  top: 5px;
+  left: 3px;
+  background: url('img/slots.png') no-repeat;
+  width: 430px;
+  height: 425px;
+}
+
+#sdt-turret {
+  background: url('img/turret.png') no-repeat;
+  position: absolute;
+  top: 0;
+  left: 70px;
+}
+
+#sdt-missile {
+  background: url('img/missile.png') no-repeat;
+  position: absolute;
+  top: 0;
+  right: 70px;
+}
+
+#sdt-turret-count {
+  top: 10px;
+  left: 75px;
+}
+
+#sdt-missile-count {
+  top: 10px;
+  left: 290px;
+}
+
+.weapon-count {
+  position: absolute;
+  width: 66px;
+  height: 42px;
+}
+
+.slot {
+  position: absolute;
+}
+
+#sdt-high-slot-0 {
+  top: 45px;
+  left: 90px;
+}
+
+#sdt-high-slot-1 {
+  top: 28px;
+  left: 117px;
+}
+
+#sdt-high-slot-2 {
+  top: 18px;
+  left: 147px;
+}
+
+#sdt-high-slot-3 {
+  top: 12px;
+  left: 178px;
+}
+
+#sdt-high-slot-4 {
+  top: 12px;
+  left: 210px;
+}
+
+#sdt-high-slot-5 {
+  top: 17px;
+  left: 243px;
+}
+
+#sdt-high-slot-6 {
+  top: 28px;
+  left: 273px;
+}
+
+#sdt-high-slot-7 {
+  top: 40px;
+  left: 298px;
+}
+
+#sdt-medium-slot-0 {
+  left: 341px;
+  top: 88px;
+}
+
+#sdt-medium-slot-1 {
+  top: 115px;
+  left: 358px;
+}
+
+#sdt-medium-slot-2 {
+  top: 145px;
+  left: 368px;
+}
+
+#sdt-medium-slot-3 {
+  top: 175px;
+  left: 373px;
+}
+
+#sdt-medium-slot-4 {
+  top: 205px;
+  left: 373px;
+}
+
+#sdt-medium-slot-5 {
+  top: 237px;
+  left: 368px;
+}
+
+#sdt-medium-slot-6 {
+  top: 267px;
+  left: 358px;
+}
+
+#sdt-medium-slot-7 {
+  top: 295px;
+  left: 342px;
+}
+
+#sdt-low-slot-0 {
+  top: 338px;
+  left: 298px;
+  z-index: 4;
+}
+
+#sdt-low-slot-1 {
+  top: 353px;
+  left: 271px;
+  z-index: 4;
+}
+
+#sdt-low-slot-2 {
+  top: 365px;
+  left: 243px;
+  z-index: 4;
+}
+
+#sdt-low-slot-3 {
+  top: 370px;
+  left: 213px;
+  z-index: 4;
+}
+
+#sdt-low-slot-4 {
+  top: 370px;
+  left: 178px;
+  z-index: 4;
+}
+
+#sdt-low-slot-5 {
+  top: 365px;
+  left: 148px;
+  z-index: 3;
+}
+
+#sdt-low-slot-6 {
+  top: 356px;
+  left: 120px;
+  z-index: 2;
+}
+
+#sdt-low-slot-7 {
+  top: 340px;
+  left: 92px;
+  z-index: 1;
+}
+
+#sdt-rig-slot-0 {
+  top: 137px;
+  left: 22px;
+  z-index: 3;
+}
+
+#sdt-rig-slot-1 {
+  top: 107px;
+  left: 35px;
+  z-index: 2;
+}
+
+#sdt-rig-slot-2 {
+  top: 80px;
+  left: 52px;
+  z-index: 1;
+}
+
+#sdt-sub-sys-slot-0 {
+  top: 305px;
+  left: 55px;
+  z-index: 4;
+}
+
+#sdt-sub-sys-slot-1 {
+  top: 277px;
+  left: 35px;
+  z-index: 3;
+}
+
+#sdt-sub-sys-slot-2 {
+  top: 245px;
+  left: 25px;
+  z-index: 2;
+}
+
+#sdt-sub-sys-slot-3 {
+  top: 215px;
+  left: 15px;
+  z-index: 1;
+}
+
+#sdt-sub-sys-slot-4 {
+  top: 180px;
+  left: 15px;
+  z-index: 1;
+}
+
+#sdt-fit-calibration {
+  position: absolute;
+  top: 40px;
+  left: 0;
+}
+
+#sdt-fit-grid {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-align: right;
+}
+
+#sdt-killmail-post {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.sdt-bay {
+  vertical-align: top;
+}
+
+/* stat bar */
+.sdt-resist-em {
+  background: #23303a;
+}
+
+.sdt-resist-thermal {
+  background: #3b2424;
+}
+
+.sdt-resist-kinetic {
+  background: #383838;
+}
+
+.sdt-resist-explosive {
+  background: #3c3325;
+}
+
+.sdt-resist-push {
+  height: 16px;
+  text-align: center;
+}
+
+.sdt-resist-em,
+.sdt-resist-thermal,
+.sdt-resist-kinetic,
+.sdt-resist-explosive,
+.sdt-resist-push {
+  width: 35px;
+}
+
+.sdt-resist-em-bg {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAQCAYAAADXnxW3AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gUEDho21muNkAAAADBJREFUCNdjUOs6+5/p368fDEz/fv9gYPr/6zsD0z84AeX+YGD6//c3AxMDAwMBAgDdwRohHsGVNAAAAABJRU5ErkJggg==') repeat-x;
+}
+
+.sdt-resist-thermal-bg {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAQCAYAAADXnxW3AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gUEDhstRRV1PQAAAC1JREFUCNdjOKum9p/px79/DBDi+///DEzf//2DEf//QyV+///PwMTAwECAAADG/hncoM2yswAAAABJRU5ErkJggg==') repeat-x;
+}
+
+.sdt-resist-kinetic-bg {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAQCAYAAADXnxW3AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gUEDhsNfntV9QAAAC1JREFUCNeFxrEJADAMA8FH+w/iESVjcJpAyjTHUVWr7kZJkO27h200Mwj4cAD7Fhp0tW9a0AAAAABJRU5ErkJggg==') repeat-x;
+}
+
+.sdt-resist-explosive-bg {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAQCAYAAADXnxW3AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gUEDhsUGhD9NQAAADFJREFUCNdjONul9p/px69/DEw/fv9jYPr+6z8D0/df/+DEfwaI7O+//xmYGBgYCBAA3qcaIQtlx+AAAAAASUVORK5CYII=') repeat-x;
+}
+
+/* table */
+.sdt-table {
+  border-spacing: 0;
+  width: 100%;
+}
+
+.sdt-table-delimiter {
+  margin-top: 13px;
+}
+
+.sdt-th {
+  background: url('data:images/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAATCAYAAABRC2cZAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gUHAh8pPbsiqgAAAC1JREFUCNdljLENADAMwiw+4f8foUuVSO1i4QFjuwJQEtT2YjXJp89ibgW2dwDB2i5FCEhJ4QAAAABJRU5ErkJggg==') repeat-x #0b0b0b;
+  border-color: #393939 rgba(57, 57, 57, .3);
+  border-style: solid solid none;
+  border-width: 1px;
+  font-weight: normal;
+  height: 19px;
+  padding: 0 4px;
+}
+
+.sdt-table td {
+  padding: 0;
+}
+
+td.sdt-td-wrap {
+  padding: 3px;
+}
+
+.sdt-td-sixth {
+  width: 16.66%;
+}
+
+.sdt-td-img img {
+  display: block;
+}
+
+.sdt-td-delimiter {
+  border-right: 4px solid transparent;
+}
+
+/* common */
+.sdt-left {
+  float: left;
+  text-align: left;
+}
+
+.sdt-right {
+  float: right;
+  text-align: right;
+}
+
+.sdt-fail {
+  color: #ff0000;
+}
+
+.sdt-ok {
+  color: #01f301;
+}
+
+.sdt-icon-28 {
+  height: 28px;
+  width: 28px;
+}
+
+.sdt-icon-32 {
+  height: 32px;
+  width: 32px;
+}
+
+.sdt-icon-40 {
+  height: 40px;
+  width: 40px;
+}
+
+.sdt-icon-64 {
+  height: 64px;
+  width: 64px;
+}
